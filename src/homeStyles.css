@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,400;1,500&display=swap');
+
+.mainWrap {
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  background-image: url('../public/mainp1.png');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.mainContent {
+  gap: 30px;
+
+  .defualtContentTitle {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .defaultContentTitleRap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .defaultContentTitleRap h1 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 0;
+  }
+
+  .defualtContentTitle p {
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.79);
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .defaultContentTitleImg {
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 70px;
+    height: 70px;
+    animation: logoSpin 4s linear infinite;
+  }
+
+  @keyframes logoSpin {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .defaultContentTitleImg {
+      width: 45px;
+      height: 45px;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .defaultContentTitleImg {
+      width: 45px;
+      height: 45px;
+      background-repeat: no-repeat;
+      object-fit: cover;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .defaultContentTitleRap h1 {
+      font-size: 40px;
+    }
+    .defaultContentTitleRap p {
+      font-size: 10px;
+      line-height: 0;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .defaultContentTitleRap h1 {
+      font-size: 40px;
+    }
+  }
+
+  @media screen and (max-width: 430px) {
+    .defaultContentTitleRap h1 {
+      font-size: 30px;
+    }
+  }
+
+  .rap-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 25px;
+    line-height: normal;
+    padding: 4px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .btnRequest {
+    padding: 7px 80px;
+    text-align: center;
+    font-size: 16px;
+    background-color: rgba(31, 31, 33, 0.6);
+    border: 2px solid rgba(194, 194, 194, 0.5);
+    border-radius: 12px;
+    color: rgba(194, 194, 194, 0.9);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btnRequest:hover {
+    background-color: rgba(31, 31, 33, 0.8);
+    color: #fff;
+  }
+
+  @media all and (max-width: 768px) {
+    .btnRequest {
+      padding: 7px 50px;
+    }
+  }
+
+  @media all and (max-width: 480px) {
+    .rap-buttons {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btnRequest {
+      width: 120px;
+      padding: 5px;
+      margin-right: 10px;
+    }
+  }
+}
+.footer {
+  width: 100%;
+  padding: 8px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.upper-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+p,
+span {
+  color: rgba(255, 255, 255, 0.79);
+}
+
+.bottom-footer {
+  text-align: center;
+}
+@media all and (max-width: 1024px) {
+  .upper-footer {
+    display: flex;
+    gap: 5px;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 11px;
+  }
+  .bottom-footer {
+    font-size: 11px;
+  }
+}
+@media all and (max-width: 768px) {
+  .upper-footer {
+    font-size: 9px;
+    width: 100%;
+  }
+  .bottom-footer {
+    font-size: 8px;
+  }
+}
+@media all and (max-width: 568px) {
+  .upper-footer {
+    font-size: 8px;
+  }
+  .bottom-footer {
+    font-size: 8px;
+  }
+}
+@media all and (max-width: 565px) {
+  .upper-footer {
+    display: none;
+  }
+  .bottom-footer {
+    display: none;
+  }
+}
+.defaultContentTitleImg {
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+  animation: logoSpin 4s linear infinite;
+}
+
+@keyframes logoSpin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
