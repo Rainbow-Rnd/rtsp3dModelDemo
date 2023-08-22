@@ -1,13 +1,13 @@
 import * as THREE from 'three'
-import { memo, useRef, forwardRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
-import { Grid, Center, AccumulativeShadows, RandomizedLight, Environment, useGLTF, CameraControls } from '@react-three/drei'
+import { Grid, Center, Environment, CameraControls } from '@react-three/drei'
 import { useControls, button, buttonGroup, folder } from 'leva'
 import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
-import CircularProgress from '@mui/material/CircularProgress'
+import cracks from './cracks.json'
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 const suzi = import(`@pmndrs/assets/models/suzi.glb`)
@@ -19,8 +19,11 @@ export default function AppModel() {
   const [isModelOpen, setIsModelOpen] = useState(false)
   //const [showModell, setShowModell] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
-
-
+  const cameraControlsRef = useRef()
+  const setPositionAndLookAt = (position, lookAt) => {
+    cameraControlsRef.current?.setLookAt(...lookAt, true)
+    cameraControlsRef.current?.setPosition(...position, true)
+  }
   useEffect(() => {
     const progressInterval = setInterval(() => {
       setIsLoading((prevProgress) => prevProgress + 10)
@@ -50,6 +53,13 @@ export default function AppModel() {
           <Scene showModel={showModel} />
         </Canvas>
       )}
+      <div>
+        {cracks.map(({ name, position, lookAt }) => (
+          <button key={name} onClick={() => setPositionAndLookAt(position, lookAt)}>
+            {name}
+          </button>
+        ))}
+      </div>
       <Popup visible={isModelOpen} onHide={onHide} imageFile={imageFile} />
     </>
   )
@@ -58,6 +68,11 @@ export default function AppModel() {
 function Scene(props) {
   const meshRef = useRef()
   const cameraControlsRef = useRef()
+  const DEG2RAD = Math.PI / 180
+  const setPositionAndLookAt = (position, lookAt) => {
+    cameraControlsRef.current?.setLookAt(...lookAt, true)
+    cameraControlsRef.current?.setPosition(...position, true)
+  }
 
   const { camera } = useThree()
 
