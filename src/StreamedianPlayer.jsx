@@ -53,10 +53,18 @@ export default class StreamedianPlayer extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <video id={this.props.id} controls autoPlay>
-          {this.props.children}
-        </video>
+      <div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <video id={this.props.id} controls autoPlay>
+            {this.props.children}
+          </video>
+        </div>
+        <button
+          onClick={() => {
+            window.location.href = '/model'
+          }}>
+          3D 모델 보기
+        </button>
       </div>
     )
   }
