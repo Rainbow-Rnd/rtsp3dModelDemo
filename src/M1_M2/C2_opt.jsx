@@ -6,9 +6,10 @@ Command: npx gltfjsx@6.2.12 C2_opt.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
-
+import { modelPath }from '../config'
 export function C2(props) {
-  const { nodes, materials } = useGLTF('/C2_opt.glb')
+  const { nodes, materials } = useGLTF( `/${modelPath}/` +'C2_opt.glb')
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Tile_18001.geometry} material={materials['Tile_18_1.002']}
@@ -22,4 +23,4 @@ export function C2(props) {
   )
 }
 
-useGLTF.preload('/C2_opt.glb')
+useGLTF.preload( `/${modelPath}/` +'C2_opt.glb')

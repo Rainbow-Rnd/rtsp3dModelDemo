@@ -7,7 +7,6 @@ import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
-import CircularProgress from '@mui/material/CircularProgress'
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 

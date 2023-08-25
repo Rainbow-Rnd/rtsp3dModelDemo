@@ -6,8 +6,16 @@ Command: npx gltfjsx@6.2.12 M1_opt.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
+import { modelPath }from '../config'
+
+
 export function M1(props) {
-    const { nodes, materials } = useGLTF('/M1_opt.glb')
+
+      const path = `/${modelPath}/` +'M1_opt.glb'
+      console.log('path:', path);
+
+      const { nodes, materials } = useGLTF(`/${modelPath}/` +'M1_opt.glb')
+
     return (
       <group {...props} dispose={null}>
           <mesh geometry={nodes.Tile_7.geometry} material={materials['Tile_7_0.002']} />
@@ -45,4 +53,4 @@ export function M1(props) {
     )
 }
 
-useGLTF.preload('/M1_opt.glb')
+useGLTF.preload( `/${modelPath}/` +'M1_opt.glb')

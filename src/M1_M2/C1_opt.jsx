@@ -6,9 +6,12 @@ Command: npx gltfjsx@6.2.12 C1_opt.glb
 import React, { useEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
+import { modelPath }from '../config'
+
+
 
 export function C1(props) {
-  const { nodes, materials } = useGLTF('/C1_opt.glb')
+  const { nodes, materials } = useGLTF( `/${modelPath}/` +'C1_opt.glb')
 
   useEffect(() => {
     console.log("threejs:", nodes);
@@ -28,4 +31,4 @@ export function C1(props) {
   )
 }
 
-useGLTF.preload('/C1_opt.glb')
+useGLTF.preload( `/${modelPath}/` +'C1_opt.glb')
