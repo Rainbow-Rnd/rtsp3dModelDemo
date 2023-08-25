@@ -1,0 +1,7 @@
+[
+  { "type": "M1", "imageFile": "image1.jpg" },
+  { "type": "M2", "imageFile": "image2.jpg" },
+  { "type": "C1", "imageFile": "image3.jpg" },
+  { "type": "C2", "imageFile": "image4.jpg" },
+  { "type": "C3", "imageFile": "image5.jpg" }
+]

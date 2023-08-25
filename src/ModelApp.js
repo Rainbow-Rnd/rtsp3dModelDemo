@@ -7,7 +7,6 @@ import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
-import CircularProgress from '@mui/material/CircularProgress'
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 
@@ -18,7 +17,6 @@ export default function AppModel() {
   const [isModelOpen, setIsModelOpen] = useState(false)
   //const [showModell, setShowModell] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
-
 
   useEffect(() => {
     const progressInterval = setInterval(() => {
@@ -54,13 +52,12 @@ export default function AppModel() {
   )
 }
 
-function Scene(props) {
+function Scene({ showModel }) {
   const meshRef = useRef()
   const cameraControlsRef = useRef()
 
   const { camera } = useThree()
 
-  // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
     thetaGrp: buttonGroup({
       label: 'rotate theta',
@@ -130,7 +127,7 @@ function Scene(props) {
     <>
       <group position-y={-0.5}>
         <Center top>
-          <Model showModel={props.showModel} />
+          <Model showModel={showModel} />
         </Center>
         <Ground />
         <CameraControls

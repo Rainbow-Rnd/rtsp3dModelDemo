@@ -4,27 +4,26 @@ Command: npx gltfjsx@6.2.10 1.glb --transform
 Files: 1.glb [4.54MB] > 1-transformed.glb [1.47MB] (68%)
 */
 
-import React, { useRef, useEffect } from "react";
-import { useGLTF } from "@react-three/drei";
-import * as THREE from "three";
+import React, { useRef, useEffect } from 'react'
+import { useGLTF } from '@react-three/drei'
+import * as THREE from 'three'
 
 export function Area({ showModel, path, crackParam, title }) {
-	const { nodes, materials } = useGLTF(path);
-	useEffect(() => {
-		console.log("threejs:", nodes[title]);
-	}, []);
-	return (
-		<group dispose={null}>
-			<mesh
-				onClick={(e) => {showModel(crackParam)
-					console.log(e.point);
-				}
-			}
-				geometry={nodes[title].geometry}
-				material={materials.Material_0}
-			>
-				<meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
-			</mesh>
-		</group>
-	);
+  const { nodes, materials } = useGLTF(path)
+  useEffect(() => {
+    console.log('threejs:', nodes[title])
+  }, [])
+  return (
+    <group dispose={null}>
+      <mesh
+        onClick={(e) => {
+          showModel(crackParam)
+          console.log(e.point)
+        }}
+        geometry={nodes[title].geometry}
+        material={materials.Material_0}>
+        <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
+      </mesh>
+    </group>
+  )
 }

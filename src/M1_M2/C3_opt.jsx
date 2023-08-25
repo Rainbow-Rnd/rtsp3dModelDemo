@@ -11,9 +11,9 @@ export function C3(props) {
   const { nodes, materials } = useGLTF('/C3_opt.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Tile_18002.geometry} material={materials['Tile_18_0.003']} />
-      <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
-
+      <mesh geometry={nodes.Tile_18002.geometry} material={materials['Tile_18_0.003']}>
+        <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
+      </mesh>
     </group>
   )
 }
