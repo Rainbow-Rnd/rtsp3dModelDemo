@@ -3,11 +3,29 @@ import { OrbitControls, Center, Grid ,useGLTF} from "@react-three/drei";
 
 import { Suspense, useState } from "react";
 
-import { Building } from "./Buidling";
+//import { Building } from "./Buidling";
+// import { T1_6 } from './Building/T1_6'
+// import { T1_7 } from './Building/T7_10'
+// import { T1_5 } from './Building/T1_5'
+// import { T6_10 } from './Building/T6_10'
+// import { T11_15 } from './Building/T11_15'
+// import { T16_20 } from './Building/T16_20'
+// import { T21_25 } from './Building/T21_25'
+// import { T25_30 } from './Building/T25_30'
+import { C1 } from './M1_M2/C1_opt'
+import { C2 } from './M1_M2/C2_opt'
+import { C3 } from './M1_M2/C3_opt'
+// import { C4 } from './Tiles/C4_m3'
+// import { C5 } from './Tiles/C5_m4'
+import { M1 } from './M1_M2/M1_opt'
+import { M2 } from './M1_M2/M2_opt'
+// import { M3 } from './Tiles/M3'
+// import { M4 } from './Tiles/M4'
+
+
 import { Area } from "./Area";
 import cracks from "./cracks.json";
 import { useRef } from "react";
-useGLTF.preload('/yongin_compressed_400-transformed')
 cracks.forEach((val) => {
     useGLTF.preload(val.path);
 });
@@ -31,19 +49,15 @@ export default function Model(props) {
                 <ambientLight />
                 <Suspense fallback={null}>
                     <Center top>
-                        <group position-y={-0.75} dispose={null} scale={0.07}>
-                            <Building controls={ref} areas={cracks} />
-                            {cracks.map((crack) => {
-                                return (
-                                    <Area
-                                        key={crack.path}
-                                        title={crack.title}
-                                        showModel={props.showModel}
-                                        path={crack.path}
-                                        crackParam={crack.crackParam}
-                                    ></Area>
-                                );
-                            })}
+                        <group position-y={-4.75} dispose={null} scale={0.07}>
+
+                            <M1/>
+                            <M2/>
+                            <C1/>
+                            <C2/>
+                            <C3/>
+
+
                         </group>
                     </Center>
                     <OrbitControls ref={ref} target={[0, 1, 0]} />

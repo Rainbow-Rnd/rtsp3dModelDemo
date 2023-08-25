@@ -10,7 +10,6 @@ import Model from './Model'
 import CircularProgress from '@mui/material/CircularProgress'
 
 const city = import('@pmndrs/assets/hdri/city.exr')
-const suzi = import(`@pmndrs/assets/models/suzi.glb`)
 
 const { DEG2RAD } = THREE.MathUtils
 
