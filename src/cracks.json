@@ -1,9 +1,9 @@
 [
 	{
 		"name": "Crack_1",
-		"title": "Tile_1001",
-		"path": "/tile1-transformed.glb",
-		"crackParam": "crack_1",
+		"title": "Tile_29001",
+		"path": "/C1_opt.glb",
+		"crackParam": "crack",
 		"position": {
 			"x": 17.578,
 			"y": 13.798,
@@ -45,22 +45,6 @@
 			"x": -21.708,
 			"y": 30.742,
 			"z": 8.3255
-		}
-	},
-	{
-		"name": "Crack_4",
-		"title": "Tile_1004",
-		"path": "/tile4-transformed.glb",
-		"crackParam": "crack_4",
-		"position": {
-			"x": 7.7014,
-			"y":  18.363,
-			"z": -6.2573
-		},
-		"lookAt": {
-			"x": 7.7014,
-			"y":  18.363,
-			"z": -6.2573
 		}
 	}
 ]

@@ -7,37 +7,42 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
 export function M1(props) {
-  const { nodes, materials } = useGLTF('/M1_opt.glb')
-  return (
-    <group {...props} dispose={null}>
-      <mesh geometry={nodes.Tile_7.geometry} material={materials['Tile_7_0.001']} />
-      <mesh geometry={nodes.Tile_6.geometry} material={materials['Tile_6_0.001']} />
-      <mesh geometry={nodes.Tile_5.geometry} material={materials['Tile_5_0.001']} />
-      <mesh geometry={nodes.Tile_36.geometry} material={materials.Tile_36_0} />
-      <mesh geometry={nodes.Tile_35.geometry} material={materials.Tile_35_0} />
-      <mesh geometry={nodes.Tile_34.geometry} material={materials.Tile_34_0} />
-      <mesh geometry={nodes.Tile_30.geometry} material={materials['Tile_30_0.002']} />
-      <mesh geometry={nodes.Tile_3.geometry} material={materials['Tile_3_0.001']} />
-      <mesh geometry={nodes.Tile_28.geometry} material={materials['Tile_28_0.002']} />
-      <mesh geometry={nodes.Tile_26.geometry} material={materials['Tile_26_0.002']} />
-      <mesh geometry={nodes.Tile_25.geometry} material={materials['Tile_25_0.001']} />
-      <mesh geometry={nodes.Tile_16.geometry} material={materials['Tile_16_0.001']} />
-      <mesh geometry={nodes.Tile_15.geometry} material={materials['Tile_15_0.001']} />
-      <mesh geometry={nodes.Tile_14.geometry} material={materials['Tile_14_0.001']} />
-      <mesh geometry={nodes.Tile_10.geometry} material={materials['Tile_10_0.002']} />
-      <mesh geometry={nodes.Tile_9002.geometry} material={materials['Tile_9_0.002']} />
-      <mesh geometry={nodes.Tile_9002_1.geometry} material={materials['Tile_9_1.002']} />
-      <mesh geometry={nodes.Tile_8001.geometry} material={materials['Tile_8_0.001']} />
-      <mesh geometry={nodes.Tile_8001_1.geometry} material={materials['Tile_8_1.001']} />
-      <mesh geometry={nodes.Tile_4001.geometry} material={materials['Tile_4_0.001']} />
-      <mesh geometry={nodes.Tile_4001_1.geometry} material={materials['Tile_4_1.001']} />
-      <mesh geometry={nodes.Tile_4001_2.geometry} material={materials['Tile_4_2.001']} />
-      <mesh geometry={nodes.Tile_29003.geometry} material={materials['Tile_29_0.002']} />
-      <mesh geometry={nodes.Tile_29003_1.geometry} material={materials['Tile_29_1.002']} />
-      <mesh geometry={nodes.Tile_27001.geometry} material={materials['Tile_27_0.001']} />
-      <mesh geometry={nodes.Tile_27001_1.geometry} material={materials['Tile_27_1.001']} />
-    </group>
-  )
+    const { nodes, materials } = useGLTF('/M1_opt.glb')
+    return (
+      <group {...props} dispose={null}>
+          <mesh geometry={nodes.Tile_7.geometry} material={materials['Tile_7_0.002']} />
+          <mesh geometry={nodes.Tile_6.geometry} material={materials['Tile_6_0.002']} />
+          <mesh geometry={nodes.Tile_5.geometry} material={materials['Tile_5_0.002']} />
+          <mesh geometry={nodes.Tile_36001.geometry} material={materials['Tile_36_0.001']} />
+          <mesh geometry={nodes.Tile_35001.geometry} material={materials['Tile_35_0.001']} />
+          <mesh geometry={nodes.Tile_34001.geometry} material={materials['Tile_34_0.001']} />
+          <mesh geometry={nodes.Tile_30001.geometry} material={materials['Tile_30_0.003']} />
+          <mesh geometry={nodes.Tile_3.geometry} material={materials['Tile_3_0.002']} />
+          <mesh geometry={nodes.Tile_28001.geometry} material={materials['Tile_28_0.003']} />
+          <mesh geometry={nodes.Tile_26001.geometry} material={materials['Tile_26_0.003']} />
+          <mesh geometry={nodes.Tile_25001.geometry} material={materials['Tile_25_0.002']} />
+          <mesh geometry={nodes.Tile_16001.geometry} material={materials['Tile_16_0.002']} />
+          <mesh geometry={nodes.Tile_15.geometry} material={materials['Tile_15_0.002']} />
+          <mesh geometry={nodes.Tile_14.geometry} material={materials['Tile_14_0.002']} />
+          <mesh geometry={nodes.Tile_10.geometry} material={materials['Tile_10_0.003']} />
+          <mesh geometry={nodes.Tile_37.geometry} material={materials.Tile_37_0} />
+          <mesh geometry={nodes.Tile_38.geometry} material={materials['Tile_38_0.001']} />
+          <mesh geometry={nodes.Tile_9003.geometry} material={materials['Tile_9_0.003']} />
+          <mesh geometry={nodes.Tile_9003_1.geometry} material={materials['Tile_9_1.003']} />
+          <mesh geometry={nodes.Tile_8002.geometry} material={materials['Tile_8_0.002']} />
+          <mesh geometry={nodes.Tile_8002_1.geometry} material={materials['Tile_8_1.002']} />
+          <mesh geometry={nodes.Tile_4002.geometry} material={materials['Tile_4_0.002']} />
+          <mesh geometry={nodes.Tile_4002_1.geometry} material={materials['Tile_4_1.002']} />
+          <mesh geometry={nodes.Tile_4002_2.geometry} material={materials['Tile_4_2.002']} />
+          <mesh geometry={nodes.Tile_29005.geometry} material={materials['Tile_29_0.003']} />
+          <mesh geometry={nodes.Tile_29005_1.geometry} material={materials['Tile_29_1.003']} />
+          <mesh geometry={nodes.Tile_27002.geometry} material={materials['Tile_27_0.002']} />
+          <mesh geometry={nodes.Tile_27002_1.geometry} material={materials['Tile_27_1.002']} />
+          <mesh geometry={nodes.Tile_39_1.geometry} material={materials.Tile_39_0} />
+          <mesh geometry={nodes.Tile_39_2.geometry} material={materials.Tile_39_1} />
+          <mesh geometry={nodes.Tile_39_3.geometry} material={materials.Tile_39_2} />
+      </group>
+    )
 }
 
 useGLTF.preload('/M1_opt.glb')

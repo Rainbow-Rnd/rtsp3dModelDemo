@@ -23,12 +23,16 @@ import { M2 } from './M1_M2/M2_opt'
 // import { M4 } from './Tiles/M4'
 
 
-import { Area } from "./Area";
+import { RepairArea } from "./repairArea";
 import cracks from "./cracks.json";
 import { useRef } from "react";
 cracks.forEach((val) => {
     useGLTF.preload(val.path);
 });
+
+
+
+
 
 export default function Model(props) {
 
@@ -53,11 +57,12 @@ export default function Model(props) {
 
                             <M1/>
                             <M2/>
-                            <C1/>
-                            <C2/>
+                            {cracks.map((crack) => {
+                                return (
+                                  <C1 showModel={props.showModel} crackParam={crack.crackParam} />
+                                );
+                            })}
                             <C3/>
-
-
                         </group>
                     </Center>
                     <OrbitControls ref={ref} target={[0, 1, 0]} />

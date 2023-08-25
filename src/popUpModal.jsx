@@ -35,7 +35,7 @@ function Popup({ visible, onHide , imageFile }) {
             marginBottom: "10px",
           }}
         >
-          <h2 style={{ margin: 0 }}>Details about Apartment</h2>
+          <h2 style={{ margin: 0 }}>Details about area</h2>
           <button
             style={{
               backgroundColor: "transparent",
@@ -54,12 +54,7 @@ function Popup({ visible, onHide , imageFile }) {
             alt="image"
             style={{ width: "100%", marginBottom: "10px" }}
           />
-          <h3>Parts with problems</h3>
-          <p>
-            Here you can get some information about your desired floor. Lorem
-            ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit non
-            orci gravida posuere.
-          </p>
+          <h3>Recommended repair Method </h3>
         </div>
       </div>
     </div>

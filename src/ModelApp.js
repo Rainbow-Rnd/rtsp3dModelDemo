@@ -45,7 +45,7 @@ export default function AppModel() {
       {isLoading < 100 ? (
         <Loading variant="determinate" value={isLoading} />
       ) : (
-        <Canvas shadows camera={{ position: [0, 0, 5], fov: 60 }}>
+        <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }}>
           <Scene showModel={showModel} />
         </Canvas>
       )}
@@ -108,21 +108,19 @@ function Scene(props) {
     ),
     reset: button(() => cameraControlsRef.current?.reset(true)),
 
-    균열_1: button((get) => {
-      cameraControlsRef.current?.setLookAt(1.07459, 1.326096, -2.0549, 1.4869516928011447, 1.50839858982, -0.752778, true)
-      cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
+    crack_1: button((get) => {
+      cameraControlsRef.current?.setLookAt( 1.0076669093, 1.366110155, -3.268012404, 1.00947185768715, 1.3643052074, -2.061610650, true)
+      cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
+      cameraControlsRef.current?.rotate(-10 * DEG2RAD, 0, true)
+
     }),
-    균열_2: button((get) => {
+    crack_2: button((get) => {
       cameraControlsRef.current?.setLookAt(0.7626, 1.878338, -1.2952, 0.762942, 1.8791, -0.13654, true)
       cameraControlsRef.current?.rotate(-135 * DEG2RAD, 0, true)
     }),
-    균열_3: button((get) => {
+    crack_3: button((get) => {
       cameraControlsRef.current?.setLookAt(-1.95213, 3.1757, 0.00394, -1.260834, 2.72418, -1.19891, true)
       cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
-    }),
-    균열_4: button((get) => {
-      cameraControlsRef.current?.setLookAt(-1.48586, 1.336, -2.05007, -1.48512, 1.3368, -1.0335, true)
-      cameraControlsRef.current?.rotate(45 * DEG2RAD, 0, true)
     })
   })
 
