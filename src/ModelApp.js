@@ -7,6 +7,7 @@ import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
+import cracks from './cracks.json'
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 
@@ -43,7 +44,7 @@ export default function AppModel() {
       {isLoading < 100 ? (
         <Loading variant="determinate" value={isLoading} />
       ) : (
-        <Canvas shadows camera={{ position: [0, 0, 5], fov: 60 }}>
+        <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }}>
           <Scene showModel={showModel} />
         </Canvas>
       )}
@@ -52,12 +53,33 @@ export default function AppModel() {
   )
 }
 
-function Scene({ showModel }) {
+function Scene(props) {
   const meshRef = useRef()
   const cameraControlsRef = useRef()
 
   const { camera } = useThree()
 
+  let crackFolder = {}
+  cracks.forEach((val) => {
+    const name = val.name
+    const { x, y, z } = val.position
+    const { a, b, c } = val.lookAt
+
+    // console.log("x: ", x);
+    // console.log("y: ", y);
+    // console.log("z: ", z);
+    // console.log("a: ", a);
+    // console.log("b: ", b);
+    // console.log("c: ", c);
+
+    crackFolder[name] = button((get) => {
+      cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+      // cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
+      // cameraControlsRef.current?.rotate(-30 * DEG2RAD, 0, true)
+    })
+  })
+
+  // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
     thetaGrp: buttonGroup({
       label: 'rotate theta',
@@ -96,31 +118,9 @@ function Scene({ showModel }) {
         '/-2': () => cameraControlsRef.current?.zoom(-camera.zoom / 2, true)
       }
     }),
-    setPosition: folder(
-      {
-        vec2: { value: [-5, 2, 1], label: 'vec' },
-        'setPosition(…vec)': button((get) => cameraControlsRef.current?.setPosition(...get('setPosition.vec2'), true))
-      },
-      { collapsed: true }
-    ),
     reset: button(() => cameraControlsRef.current?.reset(true)),
 
-    균열_1: button((get) => {
-      cameraControlsRef.current?.setLookAt(1.07459, 1.326096, -2.0549, 1.4869516928011447, 1.50839858982, -0.752778, true)
-      cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
-    }),
-    균열_2: button((get) => {
-      cameraControlsRef.current?.setLookAt(0.7626, 1.878338, -1.2952, 0.762942, 1.8791, -0.13654, true)
-      cameraControlsRef.current?.rotate(-135 * DEG2RAD, 0, true)
-    }),
-    균열_3: button((get) => {
-      cameraControlsRef.current?.setLookAt(-1.95213, 3.1757, 0.00394, -1.260834, 2.72418, -1.19891, true)
-      cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
-    }),
-    균열_4: button((get) => {
-      cameraControlsRef.current?.setLookAt(-1.48586, 1.336, -2.05007, -1.48512, 1.3368, -1.0335, true)
-      cameraControlsRef.current?.rotate(45 * DEG2RAD, 0, true)
-    })
+    Cracks: folder(crackFolder)
   })
 
   return (

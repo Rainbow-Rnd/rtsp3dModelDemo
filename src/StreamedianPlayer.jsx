@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 export default class StreamedianPlayer extends React.Component {
   constructor(props) {
