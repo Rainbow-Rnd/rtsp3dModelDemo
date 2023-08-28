@@ -29,22 +29,12 @@ function Popup({ visible, onHide, imageFile }) {
       <div style={dialogStyle}>
         <div
           style={{
-<<<<<<< HEAD
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
             marginBottom: '10px'
           }}>
-          <h2 style={{ margin: 0 }}>Details about Apartment</h2>
-=======
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "10px",
-          }}
-        >
           <h2 style={{ margin: 0 }}>Details about area</h2>
->>>>>>> refs/remotes/origin/testJongro
           <button
             style={{
               backgroundColor: 'transparent',
@@ -57,10 +47,10 @@ function Popup({ visible, onHide, imageFile }) {
         </div>
         <div>
           <img
-              //src={process.env.PUBLIC_URL + "/crack_1.jpg"}
-              src={process.env.PUBLIC_URL + `/${imageFile}.jpg`}
+            //src={process.env.PUBLIC_URL + "/crack_1.jpg"}
+            src={process.env.PUBLIC_URL + `/${imageFile}.jpg`}
             alt="image"
-            style={{ width: "100%", marginBottom: "10px" }}
+            style={{ width: '100%', marginBottom: '10px' }}
           />
           <h3>Recommended repair Method </h3>
         </div>

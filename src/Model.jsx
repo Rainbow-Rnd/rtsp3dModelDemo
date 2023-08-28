@@ -22,36 +22,14 @@ import { C1 } from './M1_M2/C1_opt'
 import { C2 } from './M1_M2/C2_opt'
 import { C3 } from './M1_M2/C3_opt'
 
-<<<<<<< HEAD
-import { Area } from './Area'
+import { RepairArea } from './repairArea'
 import cracks from './cracks.json'
 import { useRef } from 'react'
-=======
-import { RepairArea } from "./repairArea";
-import cracks from "./cracks.json";
-import { useRef } from "react";
->>>>>>> refs/remotes/origin/testJongro
 cracks.forEach((val) => {
   useGLTF.preload(val.path)
 })
 
-
-
-
-
-export default function Model(props) {
-  const [isModelOpen, setisModelOpen] = useState(false)
-  const [imageFile, setImageFile] = useState('')
-
-<<<<<<< HEAD
-  const showModel = (imageFile) => {
-    console.log(`showModel imageFile: ${imageFile}`)
-    setisModelOpen(true)
-    setImageFile(imageFile)
-  }
-  const onHide = () => {
-    setisModelOpen(false)
-  }
+export default function Model({ showModel }) {
   const ref = useRef()
   return (
     <>
@@ -61,8 +39,9 @@ export default function Model(props) {
           <group position-y={-4.75} dispose={null} scale={0.07}>
             <M1 />
             <M2 />
-            <C1 />
-            <C2 />
+            {cracks.map((crack) => {
+              return <C1 key={crack.id} showModel={showModel} crackParam={crack.crackParam} />
+            })}
             <C3 />
           </group>
         </Center>
@@ -71,40 +50,4 @@ export default function Model(props) {
       </Suspense>
     </>
   )
-=======
-    const [isModelOpen, setisModelOpen] = useState(false);
-    const [imageFile, setImageFile] = useState("");
-
-    const showModel = (imageFile) => {
-        console.log(`showModel imageFile: ${imageFile}`);
-        setisModelOpen(true);
-        setImageFile(imageFile);
-    };
-    const onHide = () => {
-        setisModelOpen(false);
-    };
-    const ref = useRef();
-    return (
-             <>
-                <ambientLight />
-                <Suspense fallback={null}>
-                    <Center top>
-                        <group position-y={-4.75} dispose={null} scale={0.07}>
-
-                            <M1/>
-                            <M2/>
-                            {cracks.map((crack) => {
-                                return (
-                                  <C1 showModel={props.showModel} crackParam={crack.crackParam} />
-                                );
-                            })}
-                            <C3/>
-                        </group>
-                    </Center>
-                    <OrbitControls ref={ref} target={[0, 1, 0]} />
-                    <OrbitControls ref={ref} target={[0, 1, 0]} />
-                </Suspense>
-            </>
-    );
->>>>>>> refs/remotes/origin/testJongro
 }

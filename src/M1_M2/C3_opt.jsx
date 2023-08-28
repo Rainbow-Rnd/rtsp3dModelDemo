@@ -6,30 +6,18 @@ Command: npx gltfjsx@6.2.12 C3_opt.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
-import { modelPath }from '../config'
+import { modelPath } from '../config'
 
 export function C3(props) {
-
-  const { nodes, materials } = useGLTF( `/${modelPath}/` +'C3_opt.glb')
+  const { nodes, materials } = useGLTF(`/${modelPath}/` + 'C3_opt.glb')
 
   return (
     <group {...props} dispose={null}>
-<<<<<<< HEAD
-      <mesh geometry={nodes.Tile_18002.geometry} material={materials['Tile_18_0.003']}>
+      <mesh geometry={nodes.Tile_18002.geometry} material={materials['Tile_18_0.003']} onClick={(e) => console.log(e.point)}>
         <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
       </mesh>
-=======
-      <mesh geometry={nodes.Tile_18002.geometry} material={materials['Tile_18_0.003']}
-            onClick={(e) =>
-              console.log(e.point)
-            }
-      >
-        <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
-      </mesh>
-
->>>>>>> refs/remotes/origin/testJongro
     </group>
   )
 }
 
-useGLTF.preload( `/${modelPath}/` +'C3_opt.glb')
+useGLTF.preload(`/${modelPath}/` + 'C3_opt.glb')
