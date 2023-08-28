@@ -14,9 +14,9 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
 
 	const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename);
 
-	useEffect(() => {
-		console.log("threejs:", nodes);
-	}, []);
+	// useEffect(() => {
+	// 	console.log("threejs:", nodes);
+	// }, []);
 
 	return (
 		<group dispose={null}>

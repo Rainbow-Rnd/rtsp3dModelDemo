@@ -71,12 +71,12 @@ function Scene(props) {
     const {x,y,z } = problem_area.camera_position
     const {a,b,c } = problem_area.lookAt
 
-    console.log("x: ", x);
-    console.log("y: ", y);
-    console.log("z: ", z);
-    console.log("a: ", a);
-    console.log("b: ", b);
-    console.log("c: ", c);
+    // console.log("x: ", x);
+    // console.log("y: ", y);
+    // console.log("z: ", z);
+    // console.log("a: ", a);
+    // console.log("b: ", b);
+    // console.log("c: ", c);
 
     crackFolder[button_name] = button((get) => {
       cameraControlsRef.current?.setLookAt(x, y, z ,a ,b ,c, true);
