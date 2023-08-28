@@ -125,6 +125,7 @@
   .btnRequest:hover {
     background-color: rgba(31, 31, 33, 0.8);
     color: #fff;
+    border: 2px solid white;
   }
 
   @media all and (max-width: 768px) {
