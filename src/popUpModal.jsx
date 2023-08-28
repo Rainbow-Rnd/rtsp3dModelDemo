@@ -48,7 +48,7 @@ function Popup({ visible, onHide, imageFile }) {
         <div>
           <img
             //src={process.env.PUBLIC_URL + "/crack_1.jpg"}
-            src={process.env.PUBLIC_URL + `/${imageFile}.jpg`}
+            src={process.env.PUBLIC_URL + `/images/${imageFile}`}
             alt="image"
             style={{ width: '100%', marginBottom: '10px' }}
           />

@@ -7,7 +7,7 @@ import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
-import cracks from './cracks.json'
+import problem_areas from './Json/Jongro/problem_areas.json'
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 
@@ -15,8 +15,8 @@ const { DEG2RAD } = THREE.MathUtils
 
 export default function AppModel() {
   const [imageFile, setImageFile] = useState('')
-  const [isModelOpen, setIsModelOpen] = useState(false)
-  //const [showModell, setShowModell] = useState(false)
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+  //const [showPopupl, setshowPopupl] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
 
   useEffect(() => {
@@ -27,17 +27,17 @@ export default function AppModel() {
     setTimeout(() => {
       clearInterval(progressInterval)
       setIsLoading(100)
-      //setShowModell(true)
+      //setshowPopupl(true)
     }, 100000)
   }, [])
 
-  const showModel = (imageFile) => {
-    console.log(`showModel imageFile: ${imageFile}`)
-    setIsModelOpen(true)
+  const showPopup = (imageFile) => {
+    console.log(`showPopup imageFile: ${imageFile}`)
+    setIsPopupOpen(true)
     setImageFile(imageFile)
   }
   const onHide = () => {
-    setIsModelOpen(false)
+    setIsPopupOpen(false)
   }
   return (
     <>
@@ -45,10 +45,10 @@ export default function AppModel() {
         <Loading variant="determinate" value={isLoading} />
       ) : (
         <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }}>
-          <Scene showModel={showModel} />
+          <Scene showPopup={showPopup} />
         </Canvas>
       )}
-      <Popup visible={isModelOpen} onHide={onHide} imageFile={imageFile} />
+      <Popup visible={isPopupOpen} onHide={onHide} imageFile={imageFile} />
     </>
   )
 }
@@ -60,19 +60,19 @@ function Scene(props) {
   const { camera } = useThree()
 
   let crackFolder = {}
-  cracks.forEach((val) => {
-    const name = val.name
-    const { x, y, z } = val.position
-    const { a, b, c } = val.lookAt
+  problem_areas.forEach((problem_area) => {
+    const button_name = problem_area.button_name
+    const { x, y, z } = problem_area.camera_position
+    const { a, b, c } = problem_area.lookAt
 
-    // console.log("x: ", x);
-    // console.log("y: ", y);
-    // console.log("z: ", z);
-    // console.log("a: ", a);
-    // console.log("b: ", b);
-    // console.log("c: ", c);
+    console.log('x: ', x)
+    console.log('y: ', y)
+    console.log('z: ', z)
+    console.log('a: ', a)
+    console.log('b: ', b)
+    console.log('c: ', c)
 
-    crackFolder[name] = button((get) => {
+    crackFolder[button_name] = button((get) => {
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
       // cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
       // cameraControlsRef.current?.rotate(-30 * DEG2RAD, 0, true)
@@ -127,7 +127,7 @@ function Scene(props) {
     <>
       <group position-y={-0.5}>
         <Center top>
-          <Model showModel={showModel} />
+          <Model showPopup={props.showPopup} />
         </Center>
         <Ground />
         <CameraControls
