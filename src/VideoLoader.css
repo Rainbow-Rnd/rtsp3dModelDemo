@@ -22,6 +22,7 @@
   top: 76%;
   right: 31%;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 .btnStyles:hover {
   background-color: rgba(31, 31, 33, 0.8);

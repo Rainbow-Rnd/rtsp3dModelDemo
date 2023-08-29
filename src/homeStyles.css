@@ -154,6 +154,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  line-height: 3px;
 }
 .upper-footer {
   display: flex;
