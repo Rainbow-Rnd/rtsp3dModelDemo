@@ -7,9 +7,8 @@ import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
+//import problem_areas from '../public/Json/problem_areas.json'
 import problem_areas from './Json/Jongro/problem_areas.json'
-
-
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 
@@ -21,7 +20,6 @@ export default function AppModel() {
   //const [showPopupl, setshowPopupl] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
 
-
   useEffect(() => {
     const progressInterval = setInterval(() => {
       setIsLoading((prevProgress) => prevProgress + 10)
@@ -31,7 +29,7 @@ export default function AppModel() {
       clearInterval(progressInterval)
       setIsLoading(100)
       //setshowPopupl(true)
-    }, 100000)
+    }, 10000)
   }, [])
 
   const showPopup = (imageFile) => {
@@ -56,9 +54,6 @@ export default function AppModel() {
   )
 }
 
-
-
-
 function Scene(props) {
   const meshRef = useRef()
   const cameraControlsRef = useRef()
@@ -68,27 +63,18 @@ function Scene(props) {
   let crackFolder = {}
   problem_areas.forEach((problem_area) => {
     const button_name = problem_area.button_name
-    const {x,y,z } = problem_area.camera_position
-    const {a,b,c } = problem_area.lookAt
-
-    console.log("x: ", x);
-    console.log("y: ", y);
-    console.log("z: ", z);
-    console.log("a: ", a);
-    console.log("b: ", b);
-    console.log("c: ", c);
+    const { x, y, z } = problem_area.camera_position
+    const { a, b, c } = problem_area.lookAt
 
     crackFolder[button_name] = button((get) => {
-      cameraControlsRef.current?.setLookAt(x, y, z ,a ,b ,c, true);
+      cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
       // cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
       // cameraControlsRef.current?.rotate(-30 * DEG2RAD, 0, true)
-      }
-    )
-  });
+    })
+  })
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
-
     thetaGrp: buttonGroup({
       label: 'rotate theta',
       opts: {
@@ -128,10 +114,7 @@ function Scene(props) {
     }),
     reset: button(() => cameraControlsRef.current?.reset(true)),
 
-    Cracks: folder(
-      crackFolder,
-    ),
-
+    '하자 영역': folder(crackFolder)
   })
 
   return (

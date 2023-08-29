@@ -1,66 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import problemAreas from './Json/Jongro/problem_areas.json'
+import './popUpModelStyles.css'
 
-function Popup({ visible, onHide , imageFile }) {
-  const popupStyle = {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1000,
-  };
+function Popup({ visible, onHide, imageFile }) {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [paragraphs, setParagraphs] = useState([])
 
-  const dialogStyle = {
-    backgroundColor: "white",
-    borderRadius: "8px",
-    padding: "20px",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-    maxWidth: "400px",
-  };
+  useEffect(() => {
+    const image = new Image()
+    image.src = process.env.PUBLIC_URL + `/images/${imageFile}`
+    image.onload = () => {
+      setImageLoaded(true)
+    }
+  }, [imageFile])
 
-  console.log("Popup visible ? : " + `${visible}`)
+  useEffect(() => {
+    fetch('/Json/problem_areas.json')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        return response.json()
+      })
+      .then((data) => {
+        console.log(data)
+        setParagraphs(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error)
+      })
+  }, [])
+  console.log('Popup visible ? : ' + `${visible}`)
 
   return visible ? (
-    <div style={popupStyle}>
-      <div style={dialogStyle}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "10px",
-          }}
-        >
-          <h2 style={{ margin: 0 }}>Details about area</h2>
-          <button
-            style={{
-              backgroundColor: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onClick={onHide}
-          >
-            Close
+    <div className="popUpStyles">
+      <div className="dialogStyles">
+        <div className="popUpContainer">
+          <h2>면적에 대한 세부 정보</h2>
+          <button className="btnStyles" onClick={onHide}>
+            닫기
           </button>
         </div>
-        <div>
-          <img
-              //src={process.env.PUBLIC_URL + "/crack_1.jpg"}
-              src={process.env.PUBLIC_URL +  `/images/${imageFile}`}
-            alt="image"
-            style={{ width: "100%", marginBottom: "10px" }}
-          />
-          <h3>Recommended repair Method </h3>
-        </div>
+        {imageLoaded ? (
+          <img src={process.env.PUBLIC_URL + `/images/${imageFile}`} alt="image" style={{ width: '100%', marginBottom: '10px' }} />
+        ) : (
+          <div className="popUpLoading">Loading image...</div>
+        )}
+        <h3>추천 시공방법</h3>
+        {paragraphs.map((paragraph) => (
+          <p className="popUpTag" key={paragraph.id}>
+            {paragraph.text}
+          </p>
+        ))}
       </div>
     </div>
   ) : (
     <></>
-  );
+  )
 }
 
-export default Popup;
+export default Popup
