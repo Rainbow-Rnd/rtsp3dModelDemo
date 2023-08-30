@@ -40,7 +40,7 @@ function Popup({ visible, onHide, imageFile }) {
       <div className="dialogStyles">
         <div className="popUpContainer">
           <h2>면적에 대한 세부 정보</h2>
-          <button className="btnStyles" onClick={onHide}>
+          <button className="btnStyle" onClick={onHide}>
             닫기
           </button>
         </div>
