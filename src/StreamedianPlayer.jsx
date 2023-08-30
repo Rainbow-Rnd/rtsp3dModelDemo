@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
 import './VideoLoader.css'
 
 export default class StreamedianPlayer extends React.Component {

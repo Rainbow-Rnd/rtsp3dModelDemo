@@ -19,7 +19,7 @@ function Home() {
             </div>
           </div>
           <div className="rap-buttons">
-            <button className="btnRequest" onClick={() => (window.location.href = '/stream')}>
+            <button className="btnRequest" onClick={() => (window.location.href = '/video')}>
               촬영 영상 보기
             </button>
 
