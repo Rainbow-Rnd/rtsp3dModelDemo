@@ -19,13 +19,7 @@ problem_areas.forEach((problem_area) => {
 
 export default function Model(props) {
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const [imageFile, setImageFile] = useState('')
 
-  const showPopup = (imageFile) => {
-    console.log(`showPopup imageFile: ${imageFile}`)
-    setIsPopupOpen(true)
-    setImageFile(imageFile)
-  }
   const onHide = () => {
     setIsPopupOpen(false)
   }
@@ -43,9 +37,11 @@ export default function Model(props) {
                 <ProblemAreas
                   glb_filename={problem_area.glb_filename}
                   image_filename={problem_area.image_filename}
+                  problemAreaId = {problem_area.id}
                   mesh_name={problem_area.mesh_name}
                   material_name={problem_area.material_name}
-                  showPopup={props.showPopup}></ProblemAreas>
+                  showPopup={props.showPopup}>
+                </ProblemAreas>
               )
             })}
           </group>
