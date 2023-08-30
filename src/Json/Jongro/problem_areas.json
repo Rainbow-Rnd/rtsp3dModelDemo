@@ -1,7 +1,7 @@
 [
   {
-    "id": 1,
-    "text": "This is the text from the JSON file 1.",
+    "id": 0,
+    "problem_type": "철근 부식",
     "glb_filename": "crack_1.glb",
     "mesh_name": "Tile_29001",
     "material_name": "Tile_29_0.001",
@@ -18,15 +18,14 @@
       "c": -2.06161
     }
   },
-
   {
-    "id": 3,
-    "text": "This is the text from the JSON file 3.",
+    "id": 1,
+    "problem_type": "실리콘 탈락",
     "glb_filename": "crack_3.glb",
     "mesh_name": "Tile_18002",
     "material_name": "Tile_18_0.001",
     "image_filename": "silicon_3.jpg",
-    "button_name": "하자 3",
+    "button_name": "하자 2",
     "camera_position": {
       "x": 0.35654,
       "y": 1.7894972,
@@ -37,7 +36,7 @@
       "a": 0.35654,
       "b": 1.7894972,
       "c": 3.229473
-    },
-    "recommended_repair_method": "공법 3"
+    }
   }
+
 ]

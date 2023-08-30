@@ -37,7 +37,7 @@ export default function Model(props) {
                 <ProblemAreas
                   glb_filename={problem_area.glb_filename}
                   image_filename={problem_area.image_filename}
-                  problemAreaIdx = {problem_area.id}
+                  problemAreaId = {problem_area.id}
                   mesh_name={problem_area.mesh_name}
                   material_name={problem_area.material_name}
                   showPopup={props.showPopup}>

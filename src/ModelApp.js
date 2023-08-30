@@ -19,10 +19,9 @@ const { DEG2RAD } = THREE.MathUtils
 export default function AppModel() {
   const [imageFile, setImageFile] = useState('')
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  //const [showPopupl, setshowPopupl] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
 
-  const [problemAreaIdx, setproblemAreaIdx] = useState(0)
+  const [problemAreaId, setProblemAreaId] = useState(0)
 
 
   useEffect(() => {
@@ -37,13 +36,12 @@ export default function AppModel() {
     }, progressTimeout)
   }, [])
 
-  const showPopup = (imageFile, problemAreaIdx) => {
-    console.log(`showPopup imageFile: ${imageFile}`)
-    console.log(`showPopup problemAreaIdx: ${problemAreaIdx}`)
-
+  const showPopup = (imageFile, problemAreaId) => {
+    //console.log(`showPopup imageFile: ${imageFile}`)
+    //console.log(`showPopup problemAreaId: ${problemAreaId}`)
     setIsPopupOpen(true)
     setImageFile(imageFile)
-    setproblemAreaIdx(problemAreaIdx)
+    setProblemAreaId(problemAreaId)
   }
   const onHide = () => {
     setIsPopupOpen(false)
@@ -57,7 +55,7 @@ export default function AppModel() {
           <Scene showPopup={showPopup} />
         </Canvas>
       )}
-      <Popup visible={isPopupOpen} onHide={onHide} imageFile={imageFile} problemAreaIdx={problemAreaIdx}/>
+      <Popup visible={isPopupOpen} onHide={onHide} imageFile={imageFile} problemAreaId={problemAreaId}/>
     </>
   )
 }
@@ -68,16 +66,12 @@ function Scene(props) {
 
   const { camera } = useThree()
 
-  const [problemAreaIdx, setproblemAreaIdx] = useState(0)
-
 
   let crackFolder = {}
   problem_areas.forEach((problem_area, idx) => {
     const button_name = problem_area.button_name
     const { x, y, z } = problem_area.camera_position
     const { a, b, c } = problem_area.lookAt
-    //console.log('problem_area : ', problem_area)
-    //console.log('problemAreaIdx : ', problemAreaIdx)
 
     crackFolder[button_name] = button((get) => {
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
@@ -132,7 +126,7 @@ function Scene(props) {
     <>
       <group position-y={-0.5}>
         <Center top>
-          <Model showPopup={props.showPopup} problemAreaIdx = {problemAreaIdx}/>
+          <Model showPopup={props.showPopup}/>
         </Center>
         <Ground />
         <CameraControls

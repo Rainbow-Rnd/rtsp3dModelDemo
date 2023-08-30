@@ -9,13 +9,13 @@ import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { modelPath } from './config'
 
-export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaIdx }) {
+export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId }) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename)
 
   useEffect(() => {
     console.log('threejs:', nodes)
     // console.log('image_filename!!:', image_filename)
-    // console.log('problemAreaIdx!!:', problemAreaIdx)
+    // console.log('problemAreaId!!:', problemAreaId)
 
   }, [])
 
@@ -23,10 +23,8 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
     <group dispose={null}>
       <mesh
         onClick={(e) => {
-
-
-          console.log('problemAreaIdx : ', problemAreaIdx)
-          showPopup(image_filename, problemAreaIdx)
+          //console.log('problemAreaId : ', problemAreaId)
+          showPopup(image_filename, problemAreaId)
           console.log(e.point)
         }}
         geometry={nodes[mesh_name].geometry}
