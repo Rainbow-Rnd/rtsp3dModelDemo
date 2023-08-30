@@ -9,6 +9,8 @@ import Loading from './LoadingMUI'
 import Model from './Model'
 //import problem_areas from '../public/Json/problem_areas.json'
 import problem_areas from './Json/Jongro/problem_areas.json'
+import {progressTimeout} from './config.js'
+
 
 const city = import('@pmndrs/assets/hdri/city.exr')
 
@@ -29,7 +31,7 @@ export default function AppModel() {
       clearInterval(progressInterval)
       setIsLoading(100)
       //setshowPopupl(true)
-    }, 10000)
+    }, progressTimeout)
   }, [])
 
   const showPopup = (imageFile) => {

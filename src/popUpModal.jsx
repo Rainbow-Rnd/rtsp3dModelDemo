@@ -33,7 +33,7 @@ function Popup({ visible, onHide, imageFile }) {
   useEffect(() => {
     setParagraphs(problemAreas)
   }, [])
-  console.log('Popup visible ? : ' + `${visible}`)
+  //console.log('Popup visible ? : ' + `${visible}`)
 
   return visible ? (
     <div className="popUpStyles">

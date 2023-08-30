@@ -12,7 +12,6 @@ import { modelPath }from '../config'
 export function M1(props) {
 
       const path = `/${modelPath}/` +'model_1.glb'
-      console.log('path:', path);
 
       const { nodes, materials } = useGLTF(`/${modelPath}/` +'model_1.glb')
 
