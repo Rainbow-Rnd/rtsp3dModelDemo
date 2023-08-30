@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import problemAreas from './Json/Jongro/problem_areas.json'
 import './popUpModelStyles.css'
 
-function Popup({ visible, onHide, imageFile }) {
+function Popup({ visible, onHide, imageFile, problemAreaIdx }) {
   const [imageLoaded, setImageLoaded] = useState(false)
-  const [paragraphs, setParagraphs] = useState([])
+  const [jsonData, setJsonData] = useState({})
 
   useEffect(() => {
     const image = new Image()
@@ -12,7 +12,7 @@ function Popup({ visible, onHide, imageFile }) {
     image.onload = () => {
       setImageLoaded(true)
     }
-  }, [imageFile])
+  }, [])
 
   // useEffect(() => {
   //   fetch('./Json/Jongro/problem_areas.json')
@@ -31,15 +31,27 @@ function Popup({ visible, onHide, imageFile }) {
   //     })
   // }, [])
   useEffect(() => {
-    setParagraphs(problemAreas)
-  }, [])
+
+    console.log("Popup useEffect problemAreas :  ", problemAreas )
+    console.log("Popup useEffect problemAreas type :  ", typeof(problemAreas) )
+
+    console.log("Popup useEffect problemAreaIdx :  ", problemAreaIdx )
+
+    const currentJsonData = problemAreas[problemAreaIdx]
+
+    console.log("Popup useEffect currentJsonData :  ", currentJsonData )
+
+    setJsonData(currentJsonData)
+  }, [imageFile, problemAreaIdx])
+
+  
   //console.log('Popup visible ? : ' + `${visible}`)
 
   return visible ? (
     <div className="popUpStyles">
       <div className="dialogStyles">
         <div className="popUpContainer">
-          <h2>면적에 대한 세부 정보</h2>
+          <h2>{jsonData.button_name}에 대한 세부 정보</h2>
           <button className="btnStyle" onClick={onHide}>
             닫기
           </button>
@@ -50,16 +62,18 @@ function Popup({ visible, onHide, imageFile }) {
           <div className="popUpLoading">Loading image...</div>
         )}
         <h3>추천 시공방법</h3>
-        {paragraphs.map((paragraph) => (
-          <p className="popUpTag" key={paragraph.id}>
-            {paragraph.text}
-          </p>
-        ))}
+        <p className="popUpTag" key={jsonData.id}>
+          {jsonData.text}
+        </p>
+
       </div>
     </div>
   ) : (
     <></>
   )
 }
+
+
+
 
 export default Popup

@@ -22,6 +22,9 @@ export default function AppModel() {
   //const [showPopupl, setshowPopupl] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
 
+  const [problemAreaIdx, setproblemAreaIdx] = useState(0)
+
+
   useEffect(() => {
     const progressInterval = setInterval(() => {
       setIsLoading((prevProgress) => prevProgress + 10)
@@ -34,10 +37,13 @@ export default function AppModel() {
     }, progressTimeout)
   }, [])
 
-  const showPopup = (imageFile) => {
+  const showPopup = (imageFile, problemAreaIdx) => {
     console.log(`showPopup imageFile: ${imageFile}`)
+    console.log(`showPopup problemAreaIdx: ${problemAreaIdx}`)
+
     setIsPopupOpen(true)
     setImageFile(imageFile)
+    setproblemAreaIdx(problemAreaIdx)
   }
   const onHide = () => {
     setIsPopupOpen(false)
@@ -51,7 +57,7 @@ export default function AppModel() {
           <Scene showPopup={showPopup} />
         </Canvas>
       )}
-      <Popup visible={isPopupOpen} onHide={onHide} imageFile={imageFile} />
+      <Popup visible={isPopupOpen} onHide={onHide} imageFile={imageFile} problemAreaIdx={problemAreaIdx}/>
     </>
   )
 }
@@ -62,16 +68,19 @@ function Scene(props) {
 
   const { camera } = useThree()
 
+  const [problemAreaIdx, setproblemAreaIdx] = useState(0)
+
+
   let crackFolder = {}
-  problem_areas.forEach((problem_area) => {
+  problem_areas.forEach((problem_area, idx) => {
     const button_name = problem_area.button_name
     const { x, y, z } = problem_area.camera_position
     const { a, b, c } = problem_area.lookAt
+    //console.log('problem_area : ', problem_area)
+    //console.log('problemAreaIdx : ', problemAreaIdx)
 
     crackFolder[button_name] = button((get) => {
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-      // cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
-      // cameraControlsRef.current?.rotate(-30 * DEG2RAD, 0, true)
     })
   })
 
@@ -123,7 +132,7 @@ function Scene(props) {
     <>
       <group position-y={-0.5}>
         <Center top>
-          <Model showPopup={props.showPopup} />
+          <Model showPopup={props.showPopup} problemAreaIdx = {problemAreaIdx}/>
         </Center>
         <Ground />
         <CameraControls
