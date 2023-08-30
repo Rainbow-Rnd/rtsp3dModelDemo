@@ -7,19 +7,20 @@ import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
 import Loading from './LoadingMUI'
 import Model from './Model'
-import CircularProgress from '@mui/material/CircularProgress'
+//import problem_areas from '../public/Json/problem_areas.json'
+import problem_areas from './Json/Jongro/problem_areas.json'
+import {progressTimeout} from './config.js'
+
 
 const city = import('@pmndrs/assets/hdri/city.exr')
-const suzi = import(`@pmndrs/assets/models/suzi.glb`)
 
 const { DEG2RAD } = THREE.MathUtils
 
 export default function AppModel() {
   const [imageFile, setImageFile] = useState('')
-  const [isModelOpen, setIsModelOpen] = useState(false)
-  //const [showModell, setShowModell] = useState(false)
+  const [isPopupOpen, setIsPopupOpen] = useState(false)
+  //const [showPopupl, setshowPopupl] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
-
 
   useEffect(() => {
     const progressInterval = setInterval(() => {
@@ -29,28 +30,28 @@ export default function AppModel() {
     setTimeout(() => {
       clearInterval(progressInterval)
       setIsLoading(100)
-      //setShowModell(true)
-    }, 100000)
+      //setshowPopupl(true)
+    }, progressTimeout)
   }, [])
 
-  const showModel = (imageFile) => {
-    console.log(`showModel imageFile: ${imageFile}`)
-    setIsModelOpen(true)
+  const showPopup = (imageFile) => {
+    console.log(`showPopup imageFile: ${imageFile}`)
+    setIsPopupOpen(true)
     setImageFile(imageFile)
   }
   const onHide = () => {
-    setIsModelOpen(false)
+    setIsPopupOpen(false)
   }
   return (
     <>
       {isLoading < 100 ? (
         <Loading variant="determinate" value={isLoading} />
       ) : (
-        <Canvas shadows camera={{ position: [0, 0, 5], fov: 60 }}>
-          <Scene showModel={showModel} />
+        <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }}>
+          <Scene showPopup={showPopup} />
         </Canvas>
       )}
-      <Popup visible={isModelOpen} onHide={onHide} imageFile={imageFile} />
+      <Popup visible={isPopupOpen} onHide={onHide} imageFile={imageFile} />
     </>
   )
 }
@@ -60,6 +61,19 @@ function Scene(props) {
   const cameraControlsRef = useRef()
 
   const { camera } = useThree()
+
+  let crackFolder = {}
+  problem_areas.forEach((problem_area) => {
+    const button_name = problem_area.button_name
+    const { x, y, z } = problem_area.camera_position
+    const { a, b, c } = problem_area.lookAt
+
+    crackFolder[button_name] = button((get) => {
+      cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+      // cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
+      // cameraControlsRef.current?.rotate(-30 * DEG2RAD, 0, true)
+    })
+  })
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
@@ -100,38 +114,16 @@ function Scene(props) {
         '/-2': () => cameraControlsRef.current?.zoom(-camera.zoom / 2, true)
       }
     }),
-    setPosition: folder(
-      {
-        vec2: { value: [-5, 2, 1], label: 'vec' },
-        'setPosition(…vec)': button((get) => cameraControlsRef.current?.setPosition(...get('setPosition.vec2'), true))
-      },
-      { collapsed: true }
-    ),
     reset: button(() => cameraControlsRef.current?.reset(true)),
 
-    균열_1: button((get) => {
-      cameraControlsRef.current?.setLookAt(1.07459, 1.326096, -2.0549, 1.4869516928011447, 1.50839858982, -0.752778, true)
-      cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
-    }),
-    균열_2: button((get) => {
-      cameraControlsRef.current?.setLookAt(0.7626, 1.878338, -1.2952, 0.762942, 1.8791, -0.13654, true)
-      cameraControlsRef.current?.rotate(-135 * DEG2RAD, 0, true)
-    }),
-    균열_3: button((get) => {
-      cameraControlsRef.current?.setLookAt(-1.95213, 3.1757, 0.00394, -1.260834, 2.72418, -1.19891, true)
-      cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
-    }),
-    균열_4: button((get) => {
-      cameraControlsRef.current?.setLookAt(-1.48586, 1.336, -2.05007, -1.48512, 1.3368, -1.0335, true)
-      cameraControlsRef.current?.rotate(45 * DEG2RAD, 0, true)
-    })
+    '하자 영역': folder(crackFolder)
   })
 
   return (
     <>
       <group position-y={-0.5}>
         <Center top>
-          <Model showModel={props.showModel} />
+          <Model showPopup={props.showPopup} />
         </Center>
         <Ground />
         <CameraControls

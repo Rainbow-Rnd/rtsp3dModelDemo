@@ -12,45 +12,82 @@ import * as THREE from 'three'
 
 
 export function Building({ controls, areas, props }){
-	const { nodes, materials } = useGLTF('/yongin_compressed_400-transformed.glb')
+	const { nodes, materials } = useGLTF('/jongro_allTileImportedMovedToOrigin_optimized.glb')
 	return (
 		<group {...props} dispose={null}>
-			<mesh geometry={nodes.Tile_1_1.geometry} material={materials.Tile_1_0} />
-			<mesh geometry={nodes.Tile_1_2.geometry} material={materials.Tile_2_0} />
-			<mesh geometry={nodes.Tile_1_3.geometry} material={materials.Tile_3_0} />
-			<mesh geometry={nodes.Tile_1_4.geometry} material={materials.Tile_4_0} />
-			<mesh geometry={nodes.Tile_1_5.geometry} material={materials.Tile_4_1} />
-			<mesh geometry={nodes.Tile_1_6.geometry} material={materials.Tile_5_0} />
-			<mesh geometry={nodes.Tile_1_7.geometry} material={materials.Tile_5_1} />
-			<mesh geometry={nodes.Tile_1_8.geometry} material={materials.Tile_6_0} />
-			<mesh geometry={nodes.Tile_1_9.geometry} material={materials.Tile_7_0} />
-			<mesh geometry={nodes.Tile_1_10.geometry} material={materials.Tile_7_1} />
-			<mesh geometry={nodes.Tile_1_11.geometry} material={materials.Tile_8_0} />
-			<mesh geometry={nodes.Tile_1_12.geometry} material={materials.Tile_8_1} />
-			<mesh geometry={nodes.Tile_1_13.geometry} material={materials.Tile_9_0} />
-			<mesh geometry={nodes.Tile_1_14.geometry} material={materials.Tile_9_1} />
-			<mesh geometry={nodes.Tile_1_15.geometry} material={materials.Tile_9_2} />
-			<mesh geometry={nodes.Tile_1_16.geometry} material={materials.Tile_10_0} />
-			<mesh geometry={nodes.Tile_1_17.geometry} material={materials.Tile_10_1} />
-			<mesh geometry={nodes.Tile_1_18.geometry} material={materials.Tile_11_0} />
-			<mesh geometry={nodes.Tile_1_19.geometry} material={materials.Tile_12_0} />
-			<mesh geometry={nodes.Tile_1_20.geometry} material={materials.Tile_12_1} />
-			<mesh geometry={nodes.Tile_1_21.geometry} material={materials.Tile_13_0} />
-			<mesh geometry={nodes.Tile_1_22.geometry} material={materials.Tile_14_0} />
-			<mesh geometry={nodes.Tile_1_23.geometry} material={materials.Tile_14_1} />
-			<mesh geometry={nodes.Tile_1_24.geometry} material={materials.Tile_15_0} />
-			<mesh geometry={nodes.Tile_1_25.geometry} material={materials.Tile_15_1} />
-			<mesh geometry={nodes.Tile_1_26.geometry} material={materials.Tile_15_2} />
-			<mesh geometry={nodes.Tile_1_27.geometry} material={materials.Tile_16_0} />
-			<mesh geometry={nodes.Tile_1_28.geometry} material={materials.Tile_16_1} />
-			<mesh geometry={nodes.Tile_1_29.geometry} material={materials.Tile_17_0} />
-			<mesh geometry={nodes.Tile_1_30.geometry} material={materials.Tile_17_1} />
-			<mesh geometry={nodes.Tile_1_31.geometry} material={materials.Tile_18_0} />
+			<mesh geometry={nodes.Tile_1.geometry} material={materials['Tile_1_0.003']} position={[14.459, -42.84, -7.909]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[14.05, -30.105, -12.767]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_2001.geometry} material={materials['Tile_2_0.001']} />
+				<mesh geometry={nodes.Tile_2001_1.geometry} material={materials['Tile_2_1.001']} />
+			</group>
+			<mesh geometry={nodes.Tile_3.geometry} material={materials.Tile_3_0} position={[18.343, -14.914, -7.696]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[8.858, -16.87, -20.717]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_4_1.geometry} material={materials.Tile_4_0} />
+				<mesh geometry={nodes.Tile_4_2.geometry} material={materials.Tile_4_1} />
+				<mesh geometry={nodes.Tile_4_3.geometry} material={materials.Tile_4_2} />
+			</group>
+			<mesh geometry={nodes.Tile_5.geometry} material={materials.Tile_5_0} position={[15.953, -3.392, -7.947]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_6.geometry} material={materials.Tile_6_0} position={[11.549, -3.737, -18.263]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_7.geometry} material={materials.Tile_7_0} position={[15.9, 11.045, -10.076]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[11.16, 23.032, -12.968]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_8_1.geometry} material={materials.Tile_8_0} />
+				<mesh geometry={nodes.Tile_8_2.geometry} material={materials.Tile_8_1} />
+			</group>
+			<group position={[9.515, 35.801, -11.81]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_9_1.geometry} material={materials.Tile_9_0} />
+				<mesh geometry={nodes.Tile_9_2.geometry} material={materials.Tile_9_1} />
+			</group>
+			<mesh geometry={nodes.Tile_10.geometry} material={materials.Tile_10_0} position={[9.187, 47.821, -8.788]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_11.geometry} material={materials.Tile_11_0} position={[2.131, -41.596, -5.679]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_12.geometry} material={materials.Tile_12_0} position={[-1.701, -37.532, -16.651]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[2.383, -30.012, -18.8]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_13_1.geometry} material={materials.Tile_13_0} />
+				<mesh geometry={nodes.Tile_13_2.geometry} material={materials.Tile_13_1} />
+			</group>
+			<mesh geometry={nodes.Tile_14.geometry} material={materials.Tile_14_0} position={[4.761, -2.015, -15.659]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_15.geometry} material={materials.Tile_15_0} position={[2.96, -2.78, -21.74]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_16.geometry} material={materials.Tile_16_0} position={[5.309, 9.732, -16.614]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_17.geometry} material={materials.Tile_17_0} position={[-15.006, -43.678, -2.665]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[-11.182, -40.156, -21.557]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_18_1.geometry} material={materials.Tile_18_0} />
+				<mesh geometry={nodes.Tile_18_2.geometry} material={materials.Tile_18_1} />
+			</group>
+			<mesh geometry={nodes.Tile_19.geometry} material={materials.Tile_19_0} position={[-22.287, -26.732, -3.827]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_20.geometry} material={materials.Tile_20_0} position={[-9.103, -28.76, -16.495]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_21.geometry} material={materials.Tile_21_0} position={[-10.342, -32.264, -21.981]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_22.geometry} material={materials.Tile_22_0} position={[-10.805, -25.977, -20.64]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_23.geometry} material={materials.Tile_23_0} position={[-10.995, -16.403, -1.951]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_24.geometry} material={materials.Tile_24_0} position={[-9.705, -16.711, -15.44]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_25.geometry} material={materials.Tile_25_0} position={[-12.947, -2.725, -2.481]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_26.geometry} material={materials.Tile_26_0} position={[-11.758, -1.526, -18.638]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[-13.889, 7.457, -16.491]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_27_1.geometry} material={materials.Tile_27_0} />
+				<mesh geometry={nodes.Tile_27_2.geometry} material={materials.Tile_27_1} />
+			</group>
+			<mesh geometry={nodes.Tile_28.geometry} material={materials.Tile_28_0} position={[-9.423, 24.318, -21.746]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[-17.074, 36.91, -9.737]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_29_1.geometry} material={materials.Tile_29_0} />
+				<mesh geometry={nodes.Tile_29_2.geometry} material={materials.Tile_29_1} />
+			</group>
+			<mesh geometry={nodes.Tile_30.geometry} material={materials.Tile_30_0} position={[-15.545, 47.997, -2.522]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_31.geometry} material={materials.Tile_31_0} position={[-20.241, -40.041, -16.323]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_32.geometry} material={materials.Tile_32_0} position={[-20.218, -29.725, -19.06]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_33.geometry} material={materials.Tile_33_0} position={[-23.044, -17.747, -3.836]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_34.geometry} material={materials.Tile_34_0} position={[-22.611, -1.204, -2.206]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_35.geometry} material={materials.Tile_35_0} position={[-24.254, 8.756, -0.365]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_36.geometry} material={materials.Tile_36_0} position={[-19.098, 7.521, -6.052]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_37.geometry} material={materials.Tile_37_0} position={[-17.445, 12.913, -18.342]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<mesh geometry={nodes.Tile_38.geometry} material={materials.Tile_38_0} position={[-21.229, 13.567, -6.79]} rotation={[Math.PI / 2, 0, -Math.PI]} />
+			<group position={[-23.003, 23.124, -12.694]} rotation={[Math.PI / 2, 0, -Math.PI]}>
+				<mesh geometry={nodes.Tile_39_1.geometry} material={materials.Tile_39_0} />
+				<mesh geometry={nodes.Tile_39_2.geometry} material={materials.Tile_39_1} />
+				<mesh geometry={nodes.Tile_39_3.geometry} material={materials.Tile_39_2} />
+			</group>
 		</group>
 	)
 }
 
-useGLTF.preload('/yongin_compressed_400-transformed.glb')
+useGLTF.preload('/jongro_allTileImportedMovedToOrigin_optimized.glb')
 
 
 //      <mesh geometry={nodes.Tile_1.geometry} material={materials.Material_0} position={[0.283, 5.274, 1.352]} />
