@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "text": "This is the text from the JSON file 1.",
+    "text": "공법 1",
     "glb_filename": "crack_1.glb",
     "mesh_name": "Tile_29001",
     "material_name": "Tile_29_0.001",
@@ -21,7 +21,7 @@
 
   {
     "id": 3,
-    "text": "This is the text from the JSON file 3.",
+    "text": "공법 3",
     "glb_filename": "crack_3.glb",
     "mesh_name": "Tile_18002",
     "material_name": "Tile_18_0.001",
