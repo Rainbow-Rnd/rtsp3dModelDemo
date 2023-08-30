@@ -55,13 +55,13 @@ export default class StreamedianPlayer extends React.Component {
 
   render() {
     return (
-      <>
-        <div className="video-container">
-          <video id={this.props.id} controls autoPlay>
-            {this.props.children}
-          </video>
-        </div>
-        <div className="container">
+      <div className="Wrapper">
+        <div className="Container">
+          <div className="Video-container">
+            <video id={this.props.id} controls autoPlay>
+              {this.props.children}
+            </video>
+          </div>
           <button
             className="btnStyles"
             onClick={() => {
@@ -70,7 +70,7 @@ export default class StreamedianPlayer extends React.Component {
             3D 모델 보기
           </button>
         </div>
-      </>
+      </div>
     )
   }
 }

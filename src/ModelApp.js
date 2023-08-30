@@ -1,7 +1,7 @@
 import * as THREE from 'three'
-import { memo, useRef, forwardRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Canvas, useThree } from '@react-three/fiber'
-import { Grid, Center, AccumulativeShadows, RandomizedLight, Environment, useGLTF, CameraControls } from '@react-three/drei'
+import { Grid, Center, Environment, CameraControls } from '@react-three/drei'
 import { useControls, button, buttonGroup, folder } from 'leva'
 import { suspend } from 'suspend-react'
 import Popup from './popUpModal'
@@ -17,7 +17,6 @@ const { DEG2RAD } = THREE.MathUtils
 export default function AppModel() {
   const [imageFile, setImageFile] = useState('')
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  //const [showPopupl, setshowPopupl] = useState(false)
   const [isLoading, setIsLoading] = useState(0)
 
   useEffect(() => {
@@ -68,8 +67,6 @@ function Scene(props) {
 
     crackFolder[button_name] = button((get) => {
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-      // cameraControlsRef.current?.rotate(0, -20 * DEG2RAD, true)
-      // cameraControlsRef.current?.rotate(-30 * DEG2RAD, 0, true)
     })
   })
 

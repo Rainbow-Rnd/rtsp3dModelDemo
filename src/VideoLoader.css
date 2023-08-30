@@ -1,27 +1,20 @@
-.container {
+.Wrapper {
   display: flex;
-}
-.video-container {
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 }
+
 .btnStyles {
   padding: 7px 27px;
   text-align: center;
   font-size: 12px;
   background-color: rgba(31, 31, 33, 0.6);
   border: 2px solid rgba(194, 194, 194, 0.5);
-  /* background-color: rgba(31, 31, 33, 0.6); */
-  /* border: 2px solid rgba(216, 216, 216, 0.5); */
   border-radius: 12px;
   color: rgba(216, 216, 216, 0.5);
   transition: background-color 0.2s ease, color 0.2s ease;
-  position: absolute;
-  top: 76%;
-  right: 31%;
-  transform: translateY(-50%);
   cursor: pointer;
 }
 .btnStyles:hover {
