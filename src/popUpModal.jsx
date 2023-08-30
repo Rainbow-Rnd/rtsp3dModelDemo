@@ -14,21 +14,24 @@ function Popup({ visible, onHide, imageFile }) {
     }
   }, [imageFile])
 
+  // useEffect(() => {
+  //   fetch('./Json/Jongro/problem_areas.json')
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error('Network response was not ok')
+  //       }
+  //       return response.json()
+  //     })
+  //     .then((data) => {
+  //       console.log(data)
+  //       setParagraphs(data)
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching data:', error)
+  //     })
+  // }, [])
   useEffect(() => {
-    fetch('/Json/problem_areas.json')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-        return response.json()
-      })
-      .then((data) => {
-        console.log(data)
-        setParagraphs(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error)
-      })
+    setParagraphs(problemAreas)
   }, [])
   console.log('Popup visible ? : ' + `${visible}`)
 
