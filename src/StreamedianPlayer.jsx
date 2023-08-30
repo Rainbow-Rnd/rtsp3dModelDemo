@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import './VideoLoader.css'
 
 export default class StreamedianPlayer extends React.Component {
   constructor(props) {
@@ -54,19 +55,22 @@ export default class StreamedianPlayer extends React.Component {
 
   render() {
     return (
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <>
+        <div className="video-container">
           <video id={this.props.id} controls autoPlay>
             {this.props.children}
           </video>
         </div>
-        <button
-          onClick={() => {
-            window.location.href = '/model'
-          }}>
-          3D 모델 보기
-        </button>
-      </div>
+        <div className="container">
+          <button
+            className="btnStyles"
+            onClick={() => {
+              window.location.href = '/model'
+            }}>
+            3D 모델 보기
+          </button>
+        </div>
+      </>
     )
   }
 }
