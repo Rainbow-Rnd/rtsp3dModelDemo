@@ -5,7 +5,11 @@
   justify-content: center;
   height: 100vh;
 }
-
+.btnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 .btnStyles {
   padding: 7px 27px;
   text-align: center;

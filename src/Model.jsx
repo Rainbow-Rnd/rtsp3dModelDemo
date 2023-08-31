@@ -7,7 +7,7 @@ import { M1 } from './M1_M2/model1'
 import { M2 } from './M1_M2/model2'
 
 //import problem_areas from '../public/Json/problem_areas.json'
-import problem_areas from './Json/Jongro/problem_areas.json.'
+import problem_areas from './Json/Jongro/problem_areas.json'
 
 import { ProblemAreas } from './ProblemAreas'
 

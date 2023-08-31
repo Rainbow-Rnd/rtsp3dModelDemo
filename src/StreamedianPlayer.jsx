@@ -61,13 +61,15 @@ export default class StreamedianPlayer extends React.Component {
               {this.props.children}
             </video>
           </div>
-          <button
-            className="btnStyles"
-            onClick={() => {
-              window.location.href = '/model'
-            }}>
-            3D 모델 보기
-          </button>
+          <div className="btnWrapper">
+            <button
+              className="btnStyles"
+              onClick={() => {
+                window.location.href = '/model'
+              }}>
+              3D 모델 보기
+            </button>
+          </div>
         </div>
       </div>
     )
