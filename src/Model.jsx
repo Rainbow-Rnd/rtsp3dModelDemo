@@ -7,7 +7,7 @@ import { M1 } from './M1_M2/model1'
 import { M2 } from './M1_M2/model2'
 
 //import problem_areas from '../public/Json/problem_areas.json'
-import problem_areas from './Json/Jongro/problem_areas.json'
+import problem_areas from './Json/Jongro/problem_areas.json.'
 
 import { ProblemAreas } from './ProblemAreas'
 
@@ -37,11 +37,10 @@ export default function Model(props) {
                 <ProblemAreas
                   glb_filename={problem_area.glb_filename}
                   image_filename={problem_area.image_filename}
-                  problemAreaId = {problem_area.id}
+                  problemAreaId={problem_area.id}
                   mesh_name={problem_area.mesh_name}
                   material_name={problem_area.material_name}
-                  showPopup={props.showPopup}>
-                </ProblemAreas>
+                  showPopup={props.showPopup}></ProblemAreas>
               )
             })}
           </group>

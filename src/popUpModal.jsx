@@ -13,9 +13,13 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
     image.onload = () => {
       setImageLoaded(true)
     }
+<<<<<<< HEAD
   }, [visible])
 
 
+=======
+  }, [imageFile])
+>>>>>>> Jongro
   useEffect(() => {
 
     if (problemAreaId !== undefined) {
