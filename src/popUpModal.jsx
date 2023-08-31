@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import problemAreas from './Json/Jongro/problem_areas.json'
 import './popUpModelStyles.css'
 
-
 function Popup({ visible, onHide, imageFile, problemAreaId }) {
   const [imageLoaded, setImageLoaded] = useState(false)
   const [jsonData, setJsonData] = useState({})
@@ -13,24 +12,17 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
     image.onload = () => {
       setImageLoaded(true)
     }
-<<<<<<< HEAD
   }, [visible])
 
-
-=======
-  }, [imageFile])
->>>>>>> Jongro
   useEffect(() => {
-
     if (problemAreaId !== undefined) {
       problemAreaId = parseInt(problemAreaId)
-      const currentJsonData = problemAreas[problemAreaId];
-      console.log("Popup useEffect currentJsonData: ", currentJsonData);
-      setJsonData(currentJsonData);
+      const currentJsonData = problemAreas[problemAreaId]
+      console.log('Popup useEffect currentJsonData: ', currentJsonData)
+      setJsonData(currentJsonData)
     }
-  }, [problemAreaId , visible ])
+  }, [problemAreaId, visible])
 
-  
   //console.log('Popup visible ? : ' + `${visible}`)
 
   return visible ? (
@@ -51,15 +43,11 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
         <p className="popUpTag" key={jsonData.id}>
           {jsonData.problem_type}
         </p>
-
       </div>
     </div>
   ) : (
     <></>
   )
 }
-
-
-
 
 export default Popup
