@@ -36,15 +36,12 @@ export default function Scene(props) {
 
     crackFolder[button_name] = button((get) => {
 
-
-
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-      if (problem_area.id==1){
+      if (problem_area.camera_rotate){
         console.log("rotate and dolly")
-        cameraControlsRef.current?.rotate(-105 * DEG2RAD, 0, true);
-        cameraControlsRef.current?.rotate(0, -50 * DEG2RAD, true);
-        cameraControlsRef.current?.dolly(-0.4, true)
-
+        cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
+        cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+        cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
       }
     })
   })
@@ -88,12 +85,31 @@ export default function Scene(props) {
       }
     }),
     reset: button(() => cameraControlsRef.current?.reset(true)),
+
     360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
-    // reset1: button(rotateCameraSmoothly),
 
-    test: button(() => {
+    '전체 보기': button(() => {
 
-      cameraControlsRef.current?.setLookAt(1.243451, 2.075090, 2.4417303, 1.24333, 2.055149, 2.4417303, true)
+      problem_areas.forEach((problem_area) => {
+
+        const { x, y, z } = problem_area.camera_position
+        const { a, b, c } = problem_area.lookAt
+
+        if (problem_area.id === 0 ){
+          cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+
+        } else {
+          setTimeout(() => {
+            cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+            if (problem_area.camera_rotate){
+              console.log("rotate and dolly")
+              cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
+              cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+              cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+            }
+            }, problem_area.setTimeout); // Adjust the delay time in milliseconds as needed
+        }
+      })
     }),
 
     '하자 영역': folder(crackFolder)
