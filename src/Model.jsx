@@ -13,6 +13,7 @@ import { ProblemAreas } from './ProblemAreas'
 
 import { useRef } from 'react'
 import { modelPath } from './config'
+//import BoundaryEdges from './BoundaryEdges_C3'
 problem_areas.forEach((problem_area) => {
   useGLTF.preload(`/${modelPath}/` + problem_area.glb_filename)
 })
@@ -32,6 +33,8 @@ export default function Model(props) {
           <group position-y={-4.75} dispose={null} scale={0.07}>
             <M1 />
             <M2 />
+            {/* Boundary edges
+            <BoundaryEdges/>*/}
             {problem_areas.map((problem_area) => {
               return (
                 <ProblemAreas

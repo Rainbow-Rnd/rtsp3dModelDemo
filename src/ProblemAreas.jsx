@@ -8,19 +8,20 @@ import React, { useRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { modelPath } from './config'
+import { EdgesGeometry } from 'three';
 
 export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId }) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename)
 
   useEffect(() => {
     console.log('threejs:', nodes)
-    // console.log('image_filename!!:', image_filename)
-    // console.log('problemAreaId!!:', problemAreaId)
-
   }, [])
+
+  const edgeGeometry = new EdgesGeometry(nodes[mesh_name].geometry);
 
   return (
     <group dispose={null}>
+      {/* Original mesh */}
       <mesh
         onClick={(e) => {
           //console.log('problemAreaId : ', problemAreaId)
@@ -29,8 +30,12 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
         }}
         geometry={nodes[mesh_name].geometry}
         material={materials[material_name]}>
-        <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
+        <meshPhongMaterial color={new THREE.Color('black')} shininess={30} />
       </mesh>
+      {/* Boundary edges
+      <lineSegments geometry={edgeGeometry}>
+        <lineBasicMaterial color="red" linewidth={5} />
+      </lineSegments> */}
     </group>
   )
 }
