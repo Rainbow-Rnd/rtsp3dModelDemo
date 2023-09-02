@@ -7,25 +7,33 @@ import { suspend } from 'suspend-react'
 import Model from './Model'
 // import { gsap } from 'gsap'
 import problem_areas from './Json/Jongro/problem_areas.json'
-const city = import('@pmndrs/assets/hdri/city.exr')
 
+const city = import('@pmndrs/assets/hdri/city.exr')
 const { DEG2RAD } = THREE.MathUtils
-// const { DEG2RAD } = Math.PI / 180
+function smoothRotateCamera(cameraControls, targetRotation, duration, onComplete) {
+  const initialRotation = cameraControls.getState().rotation
+  let startTime = null
+
+  function animate(time) {
+    if (!startTime) startTime = time
+    const elapsedTime = time - startTime
+    const progress = Math.min(elapsedTime / duration, 1)
+
+    cameraControls.rotate((targetRotation - initialRotation) * progress, 0, true)
+
+    if (progress < 1) {
+      requestAnimationFrame(animate)
+    } else {
+      if (onComplete) onComplete()
+    }
+  }
+
+  requestAnimationFrame(animate)
+}
 
 export default function Scene(props) {
-  const meshRef = useRef()
   const cameraControlsRef = useRef()
   const { camera } = useThree()
-
-  // const rotateCameraSmoothly = () => {
-  //   const targetRotation = camera.rotation.y + 360 * DEG2RAD
-
-  //   gsap.to(camera.rotation, {
-  //     y: targetRotation,
-  //     duration: 1,
-  //     ease: 'power1.easeInOut'
-  //   })
-  // }
 
   let crackFolder = {}
   problem_areas.forEach((problem_area, idx) => {
@@ -38,7 +46,7 @@ export default function Scene(props) {
     })
   })
 
-  const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly, reset1 } = useControls({
+  const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
     thetaGrp: buttonGroup({
       label: 'rotate theta',
       opts: {
@@ -77,8 +85,7 @@ export default function Scene(props) {
       }
     }),
     reset: button(() => cameraControlsRef.current?.reset(true)),
-    360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
-    // reset1: button(rotateCameraSmoothly),
+    360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true, 10000)),
 
     '하자 영역': folder(crackFolder)
   })
@@ -97,8 +104,7 @@ export default function Scene(props) {
           verticalDragToForward={verticalDragToForward}
           dollyToCursor={dollyToCursor}
           infinityDolly={infinityDolly}
-          reset1={reset1}
-          smoothTime={6}
+          smoothTime={7}
         />
         <Environment files={suspend(city).default} />
       </group>
@@ -121,3 +127,13 @@ function GroundComponent() {
   }
   return <Grid position={[0, -0.01, 0]} args={[10.5, 10.5]} {...gridConfig} />
 }
+
+// const rotateCameraSmoothly = () => {
+//   const targetRotation = camera.rotation.y + 360 * DEG2RAD
+
+//   gsap.to(camera.rotation, {
+//     y: targetRotation,
+//     duration: 1,
+//     ease: 'power1.easeInOut'
+//   })
+// }
