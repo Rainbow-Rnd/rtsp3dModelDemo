@@ -1,7 +1,8 @@
 [
     {
         "filename": "crack_4.glb",
-        "mesh_name": "Tile_32002",
-        "material_name": "Tile_32_0.001"
+        "mesh_name": "Tile_32001",
+        "material_name": "Tile_32_0"
+
     }
 ]

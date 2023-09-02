@@ -7,6 +7,7 @@ import { suspend } from 'suspend-react'
 import Model from './Model'
 // import { gsap } from 'gsap'
 import problem_areas from './Json/Jongro/problem_areas.json'
+import { cameraMoveTime } from './config'
 const city = import('@pmndrs/assets/hdri/city.exr')
 
 const { DEG2RAD } = THREE.MathUtils
@@ -80,6 +81,11 @@ export default function Scene(props) {
     360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
     // reset1: button(rotateCameraSmoothly),
 
+    test: button(() => {
+
+      cameraControlsRef.current?.setLookAt(1.243451, 2.075090, 2.4417303, 1.24333, 2.055149, 2.4417303, true)
+    }),
+
     '하자 영역': folder(crackFolder)
   })
 
@@ -98,7 +104,7 @@ export default function Scene(props) {
           dollyToCursor={dollyToCursor}
           infinityDolly={infinityDolly}
           reset1={reset1}
-          smoothTime={6}
+          smoothTime={cameraMoveTime}
         />
         <Environment files={suspend(city).default} />
       </group>

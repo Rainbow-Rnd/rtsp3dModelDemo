@@ -2,6 +2,8 @@
 export const  modelPath = process.env.REACT_APP_MODEL_PATH;
 export const rtspIP = process.env.REACT_APP_RTSP_IP;
 
+export const cameraMoveTime = process.env.REACT_APP_CAMERA_MOVE_TIME
+
 let progressTimeoutTemp = process.env.REACT_APP_PROGRESS_TIMEOUT;
 console.log('progressTimeoutTemp:', progressTimeoutTemp);
 
@@ -16,3 +18,4 @@ export  const  progressTimeout = progressTimeoutTemp
 console.log('modelPath:', modelPath);
 console.log('rtspIP:', rtspIP);
 console.log('progressTimeout:', progressTimeout);
+console.log('cameraMoveTime:', cameraMoveTime);
