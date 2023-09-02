@@ -12,7 +12,13 @@ export function Model(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[-18.605, 10.831, -6.37]} rotation={[-1.583, 0.093, -0.388]} scale={[0.77, 1.91, 1.04]}>
-        <mesh geometry={nodes.Rectangle001.geometry} material={materials['Material__43.002']} scale={0.025} />
+
+        <mesh
+          onClick={(e) => {
+            console.log(e.point)
+          }}
+          geometry={nodes.Rectangle001.geometry} material={materials['Material__43.002']} scale={0.025}  >
+        </mesh>
       </group>
     </group>
   )
