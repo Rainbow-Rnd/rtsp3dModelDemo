@@ -42,8 +42,8 @@ export default function Scene(props) {
       if (problem_area.id==1){
         console.log("rotate and dolly")
         cameraControlsRef.current?.rotate(-105 * DEG2RAD, 0, true);
-        cameraControlsRef.current?.rotate(0, -40 * DEG2RAD, true);
-        cameraControlsRef.current?.dolly(-0.5, true)
+        cameraControlsRef.current?.rotate(0, -50 * DEG2RAD, true);
+        cameraControlsRef.current?.dolly(-0.4, true)
 
       }
     })
