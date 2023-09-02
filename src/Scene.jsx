@@ -40,11 +40,11 @@ export default function Scene(props) {
 
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
       if (problem_area.id==1){
-        cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true);
+        console.log("rotate and dolly")
+        cameraControlsRef.current?.rotate(-105 * DEG2RAD, 0, true);
         cameraControlsRef.current?.rotate(0, -40 * DEG2RAD, true);
-        cameraControlsRef.current?.dolly(-1, true)
-        cameraControlsRef.current?.zoom(camera.zoom / 2, true)
-        cameraControlsRef.current?.zoom(camera.zoom / 2, true)
+        cameraControlsRef.current?.dolly(-0.5, true)
+
       }
     })
   })
