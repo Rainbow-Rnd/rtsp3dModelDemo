@@ -31,7 +31,7 @@ export default function AppModel() {
       clearInterval(progressInterval)
       setIsLoading(100)
       //setshowPopupl(true)
-    }, 100000)
+    }, 10000)
   }, [])
 
   const showPopup = (imageFile) => {

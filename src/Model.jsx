@@ -19,6 +19,7 @@ import {T1} from './polygonTest/T1'
 import {T2} from './polygonTest/T2'
 import {T3} from './polygonTest/T3'
 import {T4} from './polygonTest/T4'
+import {Model as Test} from './polygonTest/Test'
 
 
 import { useRef } from "react";
@@ -55,6 +56,7 @@ export default function Model(props) {
                             <T2/>
                             <T3/>
                             <T4/>
+                            <Test/>
                         </group>
                     </Center>
                     <OrbitControls ref={ref} target={[0, 1, 0]} />
