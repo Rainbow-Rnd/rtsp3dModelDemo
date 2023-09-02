@@ -10,7 +10,7 @@ import * as THREE from 'three'
 import { modelPath } from './config'
 import { EdgesGeometry } from 'three';
 
-export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId }) {
+export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId,position,rotation, scale, isSecondGroup, secondGroup_position, secondGroup_rotation, secondGroup_scale }) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename)
 
   useEffect(() => {
@@ -22,16 +22,33 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
   return (
     <group dispose={null}>
       {/* Original mesh */}
-      <mesh
-        onClick={(e) => {
-          //console.log('problemAreaId : ', problemAreaId)
-          showPopup(image_filename, problemAreaId)
-          console.log(e.point)
-        }}
-        geometry={nodes[mesh_name].geometry}
-        material={materials[material_name]}>
-        <meshPhongMaterial color={new THREE.Color('black')} shininess={30} />
-      </mesh>
+      {isSecondGroup ? (
+        <group position={secondGroup_position} rotation={secondGroup_rotation} scale={secondGroup_scale}>
+          <mesh
+            onClick={(e) => {
+              //console.log('problemAreaId : ', problemAreaId)
+              showPopup(image_filename, problemAreaId)
+              console.log(e.point)
+            }}
+            geometry={nodes[mesh_name].geometry}
+            material={materials[material_name]}
+            scale={scale}
+          >
+          </mesh>
+        </group>
+      ) : (
+        <mesh
+          onClick={(e) => {
+            //console.log('problemAreaId : ', problemAreaId)
+            showPopup(image_filename, problemAreaId)
+            console.log(e.point)
+          }}
+          geometry={nodes[mesh_name].geometry}
+          material={materials[material_name]}
+          position={position} rotation={rotation} scale={scale}
+        >
+        </mesh>
+      )}
       {/* Boundary edges
       <lineSegments geometry={edgeGeometry}>
         <lineBasicMaterial color="red" linewidth={5} />

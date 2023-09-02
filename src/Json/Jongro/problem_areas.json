@@ -3,8 +3,19 @@
 
     "id": 0,
     "problem_type": "실리콘 탈락",
+    "glb_filename": "test.glb",
     "image_filename": "silicon_1.jpg",
     "button_name": "하자 1",
+    "mesh_name": "Rectangle001001",
+    "material_name": "Material__43.001",
+    "position" : [-11.27, 14.279, -23.741],
+    "rotation" : [3.023, -1.245, -1.736],
+    "scale" : 0.015,
+    "isSecondGroup": false,
+    "secondGroup_position": [],
+    "secondGroup_rotation" : [],
+    "secondGroup_scale": [],
+
     "camera_position": {
       "x": 1.0076669093,
       "y": 1.366110155,
@@ -19,19 +30,35 @@
   {
 
     "id": 1,
-    "problem_type": "철근 부식",
+    "problem_type": "철근 부식-",
+    "glb_filename": "test_2.glb",
+
     "image_filename": "silicon_1.jpg",
     "button_name": "하자 2",
+
+    "mesh_name": "Rectangle001",
+    "material_name": "Material__43.002",
+
+    "position" : [],
+    "rotation" : [],
+    "scale" : 0.025,
+
+    "isSecondGroup": true,
+
+    "secondGroup_position": [-18.605, 10.831, -6.37],
+    "secondGroup_rotation" : [-1.583, 0.093, -0.388],
+    "secondGroup_scale": [0.77, 1.91, 1.04],
+
     "camera_position": {
-      "x": 0.35654,
-      "y": 1.7894972,
-      "z": 3.965345
+      "x": -1.091812,
+      "y": 0.624860,
+      "z": 0.3320721
     },
 
     "lookAt": {
-      "a": 0.35654,
-      "b": 1.7894972,
-      "c": 3.229473
+      "a": -1.09181,
+      "b": 0.624860,
+      "c": 0.0820721
     }
   }
 

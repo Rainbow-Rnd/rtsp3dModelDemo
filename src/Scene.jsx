@@ -35,7 +35,17 @@ export default function Scene(props) {
     const { a, b, c } = problem_area.lookAt
 
     crackFolder[button_name] = button((get) => {
+
+
+
       cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+      if (problem_area.id==1){
+        cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true);
+        cameraControlsRef.current?.rotate(0, -40 * DEG2RAD, true);
+        cameraControlsRef.current?.dolly(-1, true)
+        cameraControlsRef.current?.zoom(camera.zoom / 2, true)
+        cameraControlsRef.current?.zoom(camera.zoom / 2, true)
+      }
     })
   })
 

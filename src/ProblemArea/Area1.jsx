@@ -11,14 +11,17 @@ export function Model(props) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` + 'test.glb')
   return (
     <group {...props} dispose={null}>
+
       <mesh
         onClick={(e) => {
           console.log(e.point)
+          showPopup(props.image_filename, props.problemAreaId)
         }}
+
         geometry={nodes.Rectangle001001.geometry}
         material={materials['Material__43.001']} position={[-11.27, 14.279, -23.741]} rotation={[3.023, -1.245, -1.736]} scale={0.015}  >
       </mesh>
-    </group>
+</group>
   )
 }
 

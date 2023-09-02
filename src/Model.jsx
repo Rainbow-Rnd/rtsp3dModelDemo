@@ -12,7 +12,6 @@ import {Model as M2} from './M1_M2/M2'
 import { Model as Area1 } from './ProblemArea/Area1'
 import { Model as Area2 } from './ProblemArea/Area2'
 
-//import problem_areas from '../public/Json/problem_areas.json'
 import problem_areas from './Json/Jongro/problem_areas.json'
 
 import { ProblemAreas } from './ProblemAreas'
@@ -45,11 +44,9 @@ export default function Model(props) {
             <T2/>
             <T3/>
             <T4/>
-            <Area1/>
-            <Area2/>
             {/* Boundary edges
             <BoundaryEdges/>*/}
-            {/*}
+
             {problem_areas.map((problem_area) => {
               return (
                 <ProblemAreas
@@ -57,11 +54,18 @@ export default function Model(props) {
                   image_filename={problem_area.image_filename}
                   problemAreaId={problem_area.id}
                   mesh_name={problem_area.mesh_name}
+                  position={problem_area.position}
+                  rotation={problem_area.rotation}
+                  scale={problem_area.scale}
+                  isSecondGroup = {problem_area.isSecondGroup}
+                  secondGroup_position={problem_area.secondGroup_position}
+                  secondGroup_rotation={problem_area.secondGroup_rotation}
+                  secondGroup_scale={problem_area.secondGroup_scale}
                   material_name={problem_area.material_name}
-                  showPopup={props.showPopup}></ProblemAreas>
+                  showPopup={props.showPopup}>
+                </ProblemAreas>
               )
-            })}*/}
-
+            })}
           </group>
         </Center>
         <OrbitControls ref={ref} target={[0, 1, 0]} />
