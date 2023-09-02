@@ -1,0 +1,28 @@
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.btnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.btnStyles {
+  padding: 7px 27px;
+  text-align: center;
+  font-size: 12px;
+  background-color: rgba(31, 31, 33, 0.6);
+  border: 2px solid rgba(194, 194, 194, 0.5);
+  border-radius: 12px;
+  color: rgba(216, 216, 216, 0.5);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+.btnStyles:hover {
+  background-color: rgba(31, 31, 33, 0.8);
+  color: #fff;
+  border: 2px solid white;
+}

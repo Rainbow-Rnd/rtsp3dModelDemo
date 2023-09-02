@@ -1,66 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import problemAreas from './Json/Jongro/problem_areas.json'
+import './popUpModelStyles.css'
 
-function Popup({ visible, onHide , imageFile }) {
-  const popupStyle = {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1000,
-  };
+function Popup({ visible, onHide, imageFile, problemAreaId }) {
+  const [imageLoaded, setImageLoaded] = useState(false)
+  const [jsonData, setJsonData] = useState({})
 
-  const dialogStyle = {
-    backgroundColor: "white",
-    borderRadius: "8px",
-    padding: "20px",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
-    maxWidth: "400px",
-  };
+  useEffect(() => {
+    const image = new Image()
+    image.src = process.env.PUBLIC_URL + `/images/${imageFile}`
+    image.onload = () => {
+      setImageLoaded(true)
+    }
+  }, [visible])
 
-  console.log("Popup visible ? : " + `${visible}`)
+  useEffect(() => {
+    if (problemAreaId !== undefined) {
+      problemAreaId = parseInt(problemAreaId)
+      const currentJsonData = problemAreas[problemAreaId]
+      console.log('Popup useEffect currentJsonData: ', currentJsonData)
+      setJsonData(currentJsonData)
+    }
+  }, [problemAreaId, visible])
+
+  //console.log('Popup visible ? : ' + `${visible}`)
 
   return visible ? (
-    <div style={popupStyle}>
-      <div style={dialogStyle}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "10px",
-          }}
-        >
-          <h2 style={{ margin: 0 }}>Details about area</h2>
-          <button
-            style={{
-              backgroundColor: "transparent",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onClick={onHide}
-          >
-            Close
+    <div className="popUpStyles">
+      <div className="dialogStyles">
+        <div className="popUpContainer">
+          <h2>{jsonData.button_name} 세부 정보</h2>
+          <button className="btnStyle" onClick={onHide}>
+            닫기
           </button>
         </div>
-        <div>
-          <img
-              //src={process.env.PUBLIC_URL + "/crack_1.jpg"}
-              src={process.env.PUBLIC_URL +  `/images/${imageFile}`}
-            alt="image"
-            style={{ width: "100%", marginBottom: "10px" }}
-          />
-          <h3>Recommended repair Method </h3>
-        </div>
+        {imageLoaded ? (
+          <img src={process.env.PUBLIC_URL + `/images/${imageFile}`} alt="image" style={{ width: '100%', marginBottom: '10px' }} />
+        ) : (
+          <div className="popUpLoading">Loading image...</div>
+        )}
+        <h3>하자 종류</h3>
+        <p className="popUpTag" key={jsonData.id}>
+          {jsonData.problem_type}
+        </p>
       </div>
     </div>
   ) : (
     <></>
-  );
+  )
 }
 
-export default Popup;
+export default Popup
