@@ -48,7 +48,7 @@ export default function Model(props) {
             <BoundaryEdges/>*/}
 
             {problem_areas.map((problem_area) => {
-              return (
+              return  problem_area.is_midpoint ? <></> : (
                 <ProblemAreas
                   glb_filename={problem_area.glb_filename}
                   image_filename={problem_area.image_filename}

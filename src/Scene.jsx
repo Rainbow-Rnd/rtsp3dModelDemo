@@ -28,22 +28,24 @@ export default function Scene(props) {
   //   })
   // }
 
-  let crackFolder = {}
+  let probleAreaFolder = {}
   problem_areas.forEach((problem_area, idx) => {
-    const button_name = problem_area.button_name
-    const { x, y, z } = problem_area.camera_position
-    const { a, b, c } = problem_area.lookAt
 
-    crackFolder[button_name] = button((get) => {
+    if (!problem_area.is_midpoint) {
+      const button_name = problem_area.button_name
+      const { x, y, z } = problem_area.camera_position
+      const { a, b, c } = problem_area.lookAt
 
-      cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-      if (problem_area.camera_rotate){
-        console.log("rotate and dolly")
-        cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
-        cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
-        cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
-      }
-    })
+      probleAreaFolder[button_name] = button((get) => {
+        cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+        if (problem_area.camera_rotate){
+          console.log("rotate and dolly")
+          cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
+          cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+          cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+        }
+      })
+    }
   })
 
   const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly, reset1 } = useControls({
@@ -90,11 +92,11 @@ export default function Scene(props) {
 
     '전체 보기': button(() => {
 
-      problem_areas.forEach((problem_area) => {
+      problem_areas.forEach((problem_area, idx) => {
 
         const { x, y, z } = problem_area.camera_position
         const { a, b, c } = problem_area.lookAt
-
+        
         if (problem_area.id === 0 ){
           cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
 
@@ -107,12 +109,12 @@ export default function Scene(props) {
               cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
               cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
             }
-            }, problem_area.setTimeout); // Adjust the delay time in milliseconds as needed
+            }, problem_area.setTimeout * idx ); // Adjust the delay time in milliseconds as needed
         }
       })
     }),
 
-    '하자 영역': folder(crackFolder)
+    '하자 영역': folder(probleAreaFolder)
   })
 
   return (

@@ -2,7 +2,7 @@
   {
 
     "id": 0,
-    "problem_type": "철근 부식",
+    "type": "철근 부식",
     "glb_filename": "crack_1.glb",
     "mesh_name": "Tile_29001",
     "material_name": "Tile_29_0.001",
@@ -22,7 +22,7 @@
   {
 
     "id": 1,
-    "problem_type": "실리콘 탈락",
+    "type": "실리콘 탈락",
     "glb_filename": "crack_2.glb",
     "mesh_name": "Tile_18002",
     "material_name": "Tile_18_0.001",
@@ -44,7 +44,7 @@
 
   {
     "id": 2,
-    "problem_type": "실리콘 탈락",
+    "type": "실리콘 탈락",
     "glb_filename": "crack_3.glb",
     "mesh_name": "Tile_18002",
     "material_name": "Tile_18_0.001",
@@ -64,7 +64,7 @@
   },
   {
     "id": 3,
-    "problem_type": "실리콘 탈락",
+    "type": "실리콘 탈락",
     "glb_filename": "crack_4.glb",
     "mesh_name": "Tile_32001",
     "material_name": "Tile_32_0",
