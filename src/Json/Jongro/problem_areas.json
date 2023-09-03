@@ -3,7 +3,7 @@
     "id": 0,
     "problem_type": "실리콘 탈락",
     "glb_filename": "test.glb",
-    "image_filename": "silicon_1.jpg",
+    "image_filename": "problem_area1.jpg",
     "button_name": "하자 1",
     "mesh_name": "Rectangle001001",
     "material_name": "Material__43.001",
@@ -16,14 +16,19 @@
     "secondGroup_scale": [],
 
     "camera_position": {
-      "x": -1.106563,
-      "y": 1.33415751,
-      "z": -1.100944
+      "x": -1.356563,
+      "y": 1.40415751,
+      "z": -1.200944
     },
     "lookAt": {
       "a": -0.636563,
       "b": 0.8341575,
       "c": -1.10094
+    },
+    "camera_rotate": {
+      "theta": -40,
+      "phi": 0,
+      "dolly": 0.5
     }
   },
   {
@@ -31,7 +36,7 @@
     "problem_type": "철근 부식",
     "glb_filename": "test_2.glb",
 
-    "image_filename": "area2.png",
+    "image_filename": "problem_area2.jpg",
     "button_name": "하자 2",
 
     "mesh_name": "Rectangle001",
@@ -50,7 +55,7 @@
     "camera_position": {
       "x": -1.091812,
       "y": 0.62486,
-      "z": 0.3320721
+      "z": 0.1020721
     },
 
     "lookAt": {
@@ -64,13 +69,13 @@
       "dolly": -0.4
     },
 
-    "setTimeout": 3500
+    "setTimeout": 3000
   },
   {
     "id": 2,
-    "problem_type": "실리콘 탈락",
+    "problem_type": "실리콘 부식",
     "glb_filename": "test_3-transformed.glb",
-    "image_filename": "silicon_1.jpg",
+    "image_filename": "problem_area3.JPG",
     "button_name": "하자 3",
     "mesh_name": "Box001",
     "material_name": "Material__43",
@@ -83,15 +88,21 @@
     "secondGroup_scale": [],
 
     "camera_position": {
-      "x": -1.236563,
-      "y": 0.83415751,
-      "z": -1.100944
+      "x": -1.220821,
+      "y": 0.8451093,
+      "z": 0.239195
     },
     "lookAt": {
-      "a": -0.636563,
-      "b": 0.8341575,
-      "c": -1.10094
-    }
+      "a": -1.080821,
+      "b": 0.84510934731,
+      "c": 0.239195
+    },
+    "camera_rotate": {
+      "theta": -20,
+      "phi": -70,
+      "dolly": -0.5
+    },
+    "setTimeout": 3000
 
   },
   {
@@ -112,6 +123,6 @@
       "phi": -40,
       "dolly": -1.2
     },
-    "setTimeout": 2000
+    "setTimeout": 3000
   }
 ]
