@@ -1,6 +1,5 @@
 [
   {
-
     "id": 0,
     "problem_type": "실리콘 탈락",
     "glb_filename": "test.glb",
@@ -8,12 +7,84 @@
     "button_name": "하자 1",
     "mesh_name": "Rectangle001001",
     "material_name": "Material__43.001",
-    "position" : [-11.27, 14.279, -23.741],
-    "rotation" : [3.023, -1.245, -1.736],
-    "scale" : 0.015,
+    "position": [-11.27, 14.279, -23.741],
+    "rotation": [3.023, -1.245, -1.736],
+    "scale": 0.015,
     "isSecondGroup": false,
     "secondGroup_position": [],
-    "secondGroup_rotation" : [],
+    "secondGroup_rotation": [],
+    "secondGroup_scale": [],
+
+    "camera_position": {
+      "x": -1.236563,
+      "y": 0.83415751,
+      "z": -1.100944
+    },
+    "lookAt": {
+      "a": -0.636563,
+      "b": 0.8341575,
+      "c": -1.10094
+    },
+    "camera_rotate": {
+      "theta": 0,
+      "phi": -40,
+      "dolly": 0
+    }
+  },
+  {
+    "id": 1,
+    "problem_type": "철근 부식",
+    "glb_filename": "test_2.glb",
+
+    "image_filename": "area2.png",
+    "button_name": "하자 2",
+
+    "mesh_name": "Rectangle001",
+    "material_name": "Material__43.002",
+
+    "position": [],
+    "rotation": [],
+    "scale": 0.025,
+
+    "isSecondGroup": true,
+
+    "secondGroup_position": [-18.105, 10.731, -6.77],
+    "secondGroup_rotation": [-1.583, -0.0, -0.338],
+    "secondGroup_scale": [0.99, 2.21, 1.2],
+
+    "camera_position": {
+      "x": -1.091812,
+      "y": 0.62486,
+      "z": 0.3320721
+    },
+
+    "lookAt": {
+      "a": -1.09181,
+      "b": 0.62486,
+      "c": 0.0820721
+    },
+    "camera_rotate": {
+      "theta": -105,
+      "phi": -50,
+      "dolly": -0.4
+    },
+
+    "setTimeout": 2000
+  },
+  {
+    "id": 2,
+    "problem_type": "실리콘 탈락",
+    "glb_filename": "test_3-transformed.glb",
+    "image_filename": "silicon_1.jpg",
+    "button_name": "하자 1",
+    "mesh_name": "Box001",
+    "material_name": "Material__43",
+    "position": [-17.87, 14, -5.655],
+    "rotation": [-1.5707963267948966, 0, -0.345],
+    "scale": [0.09, 0.11, 0.065],
+    "isSecondGroup": false,
+    "secondGroup_position": [],
+    "secondGroup_rotation": [],
     "secondGroup_scale": [],
 
     "camera_position": {
@@ -28,62 +99,23 @@
     }
   },
   {
-
-    "id": 1,
-    "problem_type": "철근 부식",
-    "glb_filename": "test_2.glb",
-
-    "image_filename": "area2.png",
-    "button_name": "하자 2",
-
-    "mesh_name": "Rectangle001",
-    "material_name": "Material__43.002",
-
-    "position" : [],
-    "rotation" : [],
-    "scale" : 0.025,
-
-    "isSecondGroup": true,
-
-    "secondGroup_position": [-18.605, 10.831, -6.37],
-    "secondGroup_rotation" : [-1.583, 0.093, -0.388],
-    "secondGroup_scale": [0.77, 1.91, 1.04],
-
-    "camera_position": {
-      "x": -1.091812,
-      "y": 0.624860,
-      "z": 0.3320721
-    },
-
-    "lookAt": {
-      "a": -1.09181,
-      "b": 0.624860,
-      "c": 0.0820721
-    },
-    "camera_rotate": {
-      "theta": -105,
-      "phi" : -50,
-      "dolly" : -0.4
-    },
-
-    "setTimeout" : 3000
-
-  },
-
-  {
-
-    "id": 2,
+    "id": 3,
     "is_midpoint": true,
     "camera_position": {
-      "x": 1.0076669093,
-      "y": 1.366110155,
-      "z": -3.268012404
+      "x": -1.644946705845494,
+      "y": 1.553008285395,
+      "z": 1.7245824637953429
     },
     "lookAt": {
-      "a": 1.00947185768715,
-      "b": 1.3643,
-      "c": -2.06161
+      "a": -1.6449467058454944,
+      "b": 1.5530082853952105,
+      "c": 1.874582463
     },
-    "setTimeout" : 3500
+    "camera_rotate": {
+      "theta": 135,
+      "phi": -40,
+      "dolly": -1.2
+    },
+    "setTimeout": 2000
   }
 ]

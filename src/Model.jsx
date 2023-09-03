@@ -3,26 +3,24 @@ import { OrbitControls, Center, Grid, useGLTF } from '@react-three/drei'
 
 import { Suspense, useState } from 'react'
 
-// import { M1 } from './M1_M2/model1'
-// import { M2 } from './M1_M2/model2'
-
-import { Model as M1 } from './M1_M2/M1'
-import { Model as M2 } from './M1_M2/M2'
-
-import { Model as Area1 } from './ProblemArea/Area1'
-import { Model as Area2 } from './ProblemArea/Area2'
-
 import problem_areas from './Json/Jongro/problem_areas.json'
 
 import { ProblemAreas } from './ProblemAreas'
 
 import { useRef } from 'react'
 import { modelPath } from './config'
+
 import { T1 } from './Polygon/T1'
 import { T2 } from './Polygon/T2'
 import { T3 } from './Polygon/T3'
 import { T4 } from './Polygon/T4'
+import { Model as MainWindow } from './Window/Main_window'
+import { Model as MainWindow2 } from './Window/Main_window2'
+import { Model as MainWindow3 } from './Window/Main_window3'
+import { Model as MainWindow4 } from './Window/Main_window4'
+
 import { MidPoint } from './MidPoint/MidPoint'
+
 //import BoundaryEdges from './BoundaryEdges_C3'
 problem_areas.forEach((problem_area) => {
   useGLTF.preload(`/${modelPath}/` + problem_area.glb_filename)
@@ -45,6 +43,18 @@ export default function Model(props) {
             <T2 />
             <T3 />
             <T4 />
+            <MainWindow />
+            <MainWindow2 />
+            <MainWindow3 />
+            <MainWindow4 />
+
+            {/*<M1/>*/}
+            {/*<M2/>*/}
+            {/*<M3/>*/}
+            {/*<M4/>*/}
+            {/*<M5/>*/}
+            {/*<M6/>*/}
+
             {/* Boundary edges
             <BoundaryEdges/>*/}
             <MidPoint />
