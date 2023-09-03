@@ -60,8 +60,8 @@ export default function Scene(props) {
       label: 'rotate theta',
       opts: {
         '+45º': () => cameraControlsRef.current?.rotate(45 * DEG2RAD, 0, true),
-        '-90º': () => cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true),
-        '+360º': () => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)
+        '-45º': () => cameraControlsRef.current?.rotate(-45 * DEG2RAD, 0, true),
+        '-90º': () => cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
       }
     }),
     phiGrp: buttonGroup({
@@ -101,9 +101,6 @@ export default function Scene(props) {
       problem_areas.forEach((problem_area, idx) => {
         const { x, y, z } = problem_area.camera_position
         const { a, b, c } = problem_area.lookAt
-
-        console.log(idx , ' problem_area' , problem_area)
-
 
         if (problem_area.id === 0) {
 

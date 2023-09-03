@@ -39,7 +39,7 @@ export default function AppModel() {
       {isLoading < 100 ? (
         <Loading variant="determinate" value={isLoading} />
       ) : (
-        <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }}>
+        <Canvas shadows camera={{ position: [4,4,4], fov: 60 }}>
           <Scene showPopup={showPopup} />
         </Canvas>
       )}
