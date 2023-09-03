@@ -30,7 +30,6 @@ export default function Scene(props) {
 
   let probleAreaFolder = {}
   problem_areas.forEach((problem_area, idx) => {
-
     if (!problem_area.is_midpoint) {
       const button_name = problem_area.button_name
       const { x, y, z } = problem_area.camera_position
@@ -38,17 +37,17 @@ export default function Scene(props) {
 
       probleAreaFolder[button_name] = button((get) => {
         cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-        if (problem_area.camera_rotate){
-          console.log("rotate and dolly")
-          cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
-          cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+        if (problem_area.camera_rotate) {
+          console.log('rotate and dolly')
+          cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
+          cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
           cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
         }
       })
     }
   })
 
-  const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly, reset1 } = useControls({
+  const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
     thetaGrp: buttonGroup({
       label: 'rotate theta',
       opts: {
@@ -91,25 +90,22 @@ export default function Scene(props) {
     360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
 
     '전체 보기': button(() => {
-
       problem_areas.forEach((problem_area, idx) => {
-
         const { x, y, z } = problem_area.camera_position
         const { a, b, c } = problem_area.lookAt
-        
-        if (problem_area.id === 0 ){
-          cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
 
+        if (problem_area.id === 0) {
+          cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
         } else {
           setTimeout(() => {
             cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-            if (problem_area.camera_rotate){
-              console.log("rotate and dolly")
-              cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
-              cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+            if (problem_area.camera_rotate) {
+              console.log('rotate and dolly')
+              cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
+              cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
               cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
             }
-            }, problem_area.setTimeout * idx ); // Adjust the delay time in milliseconds as needed
+          }, problem_area.setTimeout * idx) // Adjust the delay time in milliseconds as needed
         }
       })
     }),
@@ -131,7 +127,6 @@ export default function Scene(props) {
           verticalDragToForward={verticalDragToForward}
           dollyToCursor={dollyToCursor}
           infinityDolly={infinityDolly}
-          reset1={reset1}
           smoothTime={cameraMoveTime}
         />
         <Environment files={suspend(city).default} />
