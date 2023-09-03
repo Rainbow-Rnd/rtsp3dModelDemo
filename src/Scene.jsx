@@ -99,6 +99,12 @@ export default function Scene(props) {
         
         if (problem_area.id === 0 ){
           cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+          if (problem_area.camera_rotate){
+            console.log("rotate and dolly")
+            cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
+            cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+            cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+          }
 
         } else {
           setTimeout(() => {

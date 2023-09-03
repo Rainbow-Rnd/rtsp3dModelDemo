@@ -8,7 +8,7 @@ import { useGLTF } from '@react-three/drei'
 import { modelPath } from '../config'
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF(`/${modelPath}/` +'m1.glb')
+  const { nodes, materials } = useGLTF(`/${modelPath}` +'m1.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Tile_2.geometry} material={materials.Tile_2_0} position={[0, -70, 0]} />
