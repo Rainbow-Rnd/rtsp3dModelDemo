@@ -85,7 +85,12 @@ export default function Scene(props) {
       }
     }),
     reset: button(() => cameraControlsRef.current?.reset(true)),
-    360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true, 10000)),
+    // 360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
+    // reset1: button(rotateCameraSmoothly),
+    360: button(() => {
+      cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)
+      // cameraControlsRef.current?.rotateSpeed=6;
+    }),
 
     '하자 영역': folder(crackFolder)
   })
