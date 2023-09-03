@@ -30,22 +30,30 @@ export default function Scene(props) {
 
   let probleAreaFolder = {}
   problem_areas.forEach((problem_area, idx) => {
+
     if (!problem_area.is_midpoint) {
+
       const button_name = problem_area.button_name
       const { x, y, z } = problem_area.camera_position
       const { a, b, c } = problem_area.lookAt
 
       probleAreaFolder[button_name] = button((get) => {
         cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-        if (problem_area.camera_rotate) {
-          console.log('rotate and dolly')
-          cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
-          cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
+
+        console.log(idx , ' problem_area' , problem_area)
+
+
+        if (problem_area.camera_rotate){
+          console.log("rotate and dolly")
+          console.log(problem_area.camera_rotate.phi)
+          cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
+          cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
           cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
         }
       })
     }
   })
+
 
   const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
     thetaGrp: buttonGroup({
@@ -94,14 +102,23 @@ export default function Scene(props) {
         const { x, y, z } = problem_area.camera_position
         const { a, b, c } = problem_area.lookAt
 
+        console.log(idx , ' problem_area' , problem_area)
+
+
         if (problem_area.id === 0) {
+
           cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-          if (problem_area.camera_rotate) {
-            console.log('rotate and dolly')
-            cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
-            cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
-            cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
-          }
+
+          setTimeout(() => {
+            cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+            if (problem_area.camera_rotate) {
+              console.log('rotate and dolly')
+              cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
+              cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
+              cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+            }
+          }, 100)
+
         } else {
           setTimeout(() => {
             cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
