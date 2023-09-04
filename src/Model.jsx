@@ -53,8 +53,6 @@ import {Model as Glass13} from './Glass/glass13'
 import {Model as Glass14} from './Glass/glass14'
 
 
-import { MidPoint } from './MidPoint/MidPoint'
-
 problem_areas.forEach((problem_area) => {
   useGLTF.preload(`/${modelPath}/` + problem_area.glb_filename)
 })
@@ -111,7 +109,6 @@ export default function Model(props) {
             <OutPanel1/>
             <OutPanel2/>
             <OutPanel3/>
-
 
             {problem_areas.map((problem_area) => {
               return problem_area.is_midpoint ? (
