@@ -34,8 +34,8 @@ import { Model as Panel4} from './Panel/tilee4'
 import { Model as Panel5} from './Panel/tilee5'
 import { Model as Panel6} from './Panel/tilee6'
 import {Model as OutPanel1} from './OutPanel/111'
-import {Model as OutPanel2} from './OutPanel/222'
-import {Model as OutPanel3} from './OutPanel/333'
+import {Model as OutPanel2} from './OutPanel/1212'
+import {Model as OutPanel3} from './OutPanel/2323'
 
 import {Model as Glass1} from './Glass/glass1'
 import {Model as Glass2} from './Glass/glass2'
@@ -111,7 +111,8 @@ export default function Model(props) {
             <OutPanel1/>
             <OutPanel2/>
             <OutPanel3/>
-            
+
+
             {problem_areas.map((problem_area) => {
               return problem_area.is_midpoint ? (
                 <></>
