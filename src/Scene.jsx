@@ -112,7 +112,7 @@ export default function Scene(props) {
               cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
               cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
             }
-          }, 100)
+          }, 1)
 
         } else {
           setTimeout(() => {
