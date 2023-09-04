@@ -19,9 +19,16 @@ import { Model as MainWindow2 } from './Window/Main_window2'
 import { Model as MainWindow3 } from './Window/Main_window3'
 import { Model as MainWindow4 } from './Window/Main_window4'
 
+import {Model as Tree1} from './Tree/TREE1'
+import {Model as Tree2} from './Tree/TREE2'
+import {Model as Tree3} from './Tree/TREE3'
+import {Model as Tree4} from './Tree/TREE4'
+import {Model as Tree5} from './Tree/TREE5'
+import {Model as Tree6} from './Tree/TREE6'
+import {Model as Tree7} from './Tree/TREE7'
+
 import { MidPoint } from './MidPoint/MidPoint'
 
-//import BoundaryEdges from './BoundaryEdges_C3'
 problem_areas.forEach((problem_area) => {
   useGLTF.preload(`/${modelPath}/` + problem_area.glb_filename)
 })
@@ -47,17 +54,14 @@ export default function Model(props) {
             <MainWindow2 />
             <MainWindow3 />
             <MainWindow4 />
+            <Tree1/>
+            <Tree2/>
+            <Tree3/>
+            <Tree4/>
+            <Tree5/>
+            <Tree6/>
+            <Tree7/>
 
-            {/*<M1/>*/}
-            {/*<M2/>*/}
-            {/*<M3/>*/}
-            {/*<M4/>*/}
-            {/*<M5/>*/}
-            {/*<M6/>*/}
-
-            {/* Boundary edges
-            <BoundaryEdges/>*/}
-            <MidPoint />
             {problem_areas.map((problem_area) => {
               return problem_area.is_midpoint ? (
                 <></>

@@ -49,10 +49,6 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
         >
         </mesh>
       )}
-      {/* Boundary edges
-      <lineSegments geometry={edgeGeometry}>
-        <lineBasicMaterial color="red" linewidth={5} />
-      </lineSegments> */}
     </group>
   )
 }
