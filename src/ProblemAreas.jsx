@@ -8,7 +8,7 @@ import React, { useRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { modelPath } from './config'
-import { EdgesGeometry } from 'three';
+//import { EdgesGeometry } from 'three';
 
 export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId,position,rotation, scale, isSecondGroup, secondGroup_position, secondGroup_rotation, secondGroup_scale }) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename)
@@ -17,12 +17,14 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
     console.log('threejs:', nodes)
   }, [])
 
-  const edgeGeometry = new EdgesGeometry(nodes[mesh_name].geometry);
+  //const edgeGeometry = new EdgesGeometry(nodes[mesh_name].geometry);
 
   return (
     <group dispose={null}>
       {/* Original mesh */}
-      {isSecondGroup ? (
+      {isSecondGroup ?
+
+        (
         <group position={secondGroup_position} rotation={secondGroup_rotation} scale={secondGroup_scale}>
           <mesh
             onClick={(e) => {

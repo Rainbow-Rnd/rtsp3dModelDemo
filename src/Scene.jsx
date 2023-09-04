@@ -95,8 +95,6 @@ export default function Scene(props) {
     }),
     reset: button(() => cameraControlsRef.current?.reset(true)),
 
-    360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
-
     '전체 보기': button(() => {
       problem_areas.forEach((problem_area, idx) => {
         const { x, y, z } = problem_area.camera_position
@@ -114,7 +112,7 @@ export default function Scene(props) {
               cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
               cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
             }
-          }, 100)
+          }, 1)
 
         } else {
           setTimeout(() => {

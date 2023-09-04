@@ -2,11 +2,11 @@
   {
     "id": 0,
     "problem_type": "실리콘 탈락",
-    "glb_filename": "test.glb",
+    "glb_filename": "test_outline.glb",
     "image_filename": "problem_area1.jpg",
     "button_name": "하자 1",
-    "mesh_name": "Rectangle001001",
-    "material_name": "Material__43.001",
+    "mesh_name": "Rectangle001",
+    "material_name": "Material__43",
     "position": [-11.27, 14.279, -23.741],
     "rotation": [3.023, -1.245, -1.736],
     "scale": 0.015,
@@ -33,14 +33,14 @@
   },
   {
     "id": 1,
-    "problem_type": "철근 부식",
-    "glb_filename": "test_2.glb",
+    "problem_type": "철판 부식",
+    "glb_filename": "test_2_outline.glb",
 
     "image_filename": "problem_area2.jpg",
     "button_name": "하자 2",
 
     "mesh_name": "Rectangle001",
-    "material_name": "Material__43.002",
+    "material_name": "Material__43",
 
     "position": [],
     "rotation": [],
@@ -73,8 +73,8 @@
   },
   {
     "id": 2,
-    "problem_type": "실리콘 부식",
-    "glb_filename": "test_3-transformed.glb",
+    "problem_type": "판넬 오염",
+    "glb_filename": "test_3_outline.glb",
     "image_filename": "problem_area3.JPG",
     "button_name": "하자 3",
     "mesh_name": "Box001",
@@ -98,7 +98,7 @@
       "c": 0.239195
     },
     "camera_rotate": {
-      "theta": -20,
+      "theta": 0,
       "phi": -70,
       "dolly": -0.5
     },
@@ -130,6 +130,26 @@
       "b": 0.8451093473196031,
       "c": 0.23979242
     }
+  },
+  {
+    "id": 4,
+    "is_midpoint": true,
+    "camera_position": {
+      "x": -1.644946705845494,
+      "y": 1.553008285395,
+      "z": 1.7245824637953429
+    },
+    "lookAt": {
+      "a": -1.6449467058454944,
+      "b": 1.5530082853952105,
+      "c": 1.874582463
+    },
+    "camera_rotate": {
+      "theta": 135,
+      "phi": -40,
+      "dolly": -1.2
+    },
+    "setTimeout": 3000
   },
   {
     "id": 4,
@@ -248,6 +268,26 @@
       "theta": 190,
       "phi": -20,
       "dolly": -2
+    },
+    "setTimeout": 2100
+  },
+  {
+    "id": 10,
+    "is_midpoint": true,
+    "camera_position": {
+      "x": -1.356563,
+      "y": 1.40415751,
+      "z": -1.200944
+    },
+    "lookAt": {
+      "a": -0.636563,
+      "b": 0.8341575,
+      "c": -1.10094
+    },
+    "camera_rotate": {
+      "theta": -40,
+      "phi": 0,
+      "dolly": 0.5
     },
     "setTimeout": 2100
   }
