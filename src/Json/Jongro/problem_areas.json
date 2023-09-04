@@ -2,11 +2,11 @@
   {
     "id": 0,
     "problem_type": "실리콘 탈락",
-    "glb_filename": "test.glb",
+    "glb_filename": "test_outline.glb",
     "image_filename": "problem_area1.jpg",
     "button_name": "하자 1",
-    "mesh_name": "Rectangle001001",
-    "material_name": "Material__43.001",
+    "mesh_name": "Rectangle001",
+    "material_name": "Material__43",
     "position": [-11.27, 14.279, -23.741],
     "rotation": [3.023, -1.245, -1.736],
     "scale": 0.015,
@@ -33,14 +33,14 @@
   },
   {
     "id": 1,
-    "problem_type": "철근 부식",
-    "glb_filename": "test_2.glb",
+    "problem_type": "철판 부식",
+    "glb_filename": "test_2_outline.glb",
 
     "image_filename": "problem_area2.jpg",
     "button_name": "하자 2",
 
     "mesh_name": "Rectangle001",
-    "material_name": "Material__43.002",
+    "material_name": "Material__43",
 
     "position": [],
     "rotation": [],
@@ -74,7 +74,7 @@
   {
     "id": 2,
     "problem_type": "실리콘 부식",
-    "glb_filename": "test_3-transformed.glb",
+    "glb_filename": "test_3_outline.glb",
     "image_filename": "problem_area3.JPG",
     "button_name": "하자 3",
     "mesh_name": "Box001",
@@ -98,7 +98,7 @@
       "c": 0.239195
     },
     "camera_rotate": {
-      "theta": -20,
+      "theta": 0,
       "phi": -70,
       "dolly": -0.5
     },
@@ -124,5 +124,66 @@
       "dolly": -1.2
     },
     "setTimeout": 3000
+  },
+  {
+    "id": 4,
+    "is_midpoint": true,
+    "camera_position": {
+      "x": -1.644946705845494,
+      "y": 1.553008285395,
+      "z": 1.7245824637953429
+    },
+    "lookAt": {
+      "a": -1.6449467058454944,
+      "b": 1.5530082853952105,
+      "c": 1.874582463
+    },
+    "camera_rotate": {
+      "theta": 135,
+      "phi": -40,
+      "dolly": -1.2
+    },
+    "setTimeout": 2000
+  },
+  {
+    "id": 5,
+    "is_midpoint": true,
+    "camera_position": {
+      "x": -0.37675297593457504,
+      "y": 1.5307086253131964,
+      "z": 2.6807755886017304
+    },
+    "lookAt": {
+      "a": -0.37675297593457507,
+      "b": 1.5307086253131964,
+      "c": 2.6807755886017304
+    },
+    "camera_rotate": {
+      "theta": -90,
+      "phi": -40,
+      "dolly": -2
+    },
+    "setTimeout": 2000
+  },
+  {
+    "id": 6,
+    "is_midpoint": true,
+    "camera_position": {
+      "x": 1.13563910028347434,
+      "y": 1.5307086253131964,
+      "z": 2.6807755886017304
+    },
+    "lookAt": {
+      "a": 1.1356391002834743,
+      "b": 1.664171043819003,
+      "c": 2.4147288600534
+    },
+    "camera_rotate": {
+      "theta": 45,
+      "phi": -60,
+      "dolly": -2
+    },
+    "setTimeout": 2100
   }
+
 ]
