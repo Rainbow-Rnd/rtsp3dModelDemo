@@ -26,11 +26,31 @@ import { Model as Tree4 } from './Tree/TREE4'
 import { Model as Tree5 } from './Tree/TREE5'
 import { Model as Tree6 } from './Tree/TREE6'
 import { Model as Tree7 } from './Tree/TREE7'
-import { MidPoint1 } from './MidPoint/MidPoint1'
-import { MidPoint2 } from './MidPoint/MidPoint2'
-import { MidPoint4 } from './MidPoint/MidPoint4'
-import { MidPoint5 } from './MidPoint/MidPoint5'
-import { MidPoint6 } from './MidPoint/MidPoint6'
+
+import { Model as Panel1 } from './Panel/tilee1'
+import { Model as Panel2 } from './Panel/tilee2'
+import { Model as Panel3 } from './Panel/tilee3'
+import { Model as Panel4 } from './Panel/tilee4'
+import { Model as Panel5 } from './Panel/tilee5'
+import { Model as Panel6 } from './Panel/tilee6'
+import { Model as OutPanel1 } from './OutPanel/111'
+import { Model as OutPanel2 } from './OutPanel/1212'
+import { Model as OutPanel3 } from './OutPanel/2323'
+
+import { Model as Glass1 } from './Glass/glass1'
+import { Model as Glass2 } from './Glass/glass2'
+import { Model as Glass3 } from './Glass/glass3'
+import { Model as Glass4 } from './Glass/glass4'
+import { Model as Glass5 } from './Glass/glass5'
+import { Model as Glass6 } from './Glass/glass6'
+import { Model as Glass7 } from './Glass/glass7'
+import { Model as Glass8 } from './Glass/glass8'
+import { Model as Glass9 } from './Glass/glass9'
+import { Model as Glass10 } from './Glass/glass10'
+import { Model as Glass11 } from './Glass/glass11'
+import { Model as Glass12 } from './Glass/glass12'
+import { Model as Glass13 } from './Glass/glass13'
+import { Model as Glass14 } from './Glass/glass14'
 
 problem_areas.forEach((problem_area) => {
   useGLTF.preload(`/${modelPath}/` + problem_area.glb_filename)
@@ -64,11 +84,30 @@ export default function Model(props) {
             <Tree5 />
             <Tree6 />
             <Tree7 />
-            <MidPoint1 />
-            <MidPoint2 />
-            <MidPoint4 />
-            <MidPoint5 />
-            <MidPoint6 />
+            <Panel1 />
+            <Panel2 />
+            <Panel3 />
+            <Panel4 />
+            <Panel5 />
+            <Panel6 />
+            <Glass1 />
+            <Glass1 />
+            <Glass2 />
+            <Glass3 />
+            <Glass4 />
+            <Glass5 />
+            <Glass6 />
+            <Glass7 />
+            <Glass8 />
+            <Glass9 />
+            <Glass10 />
+            <Glass11 />
+            <Glass12 />
+            <Glass13 />
+            <Glass14 />
+            <OutPanel1 />
+            <OutPanel2 />
+            <OutPanel3 />
 
             {problem_areas.map((problem_area) => {
               return problem_area.is_midpoint ? (
