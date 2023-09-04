@@ -100,6 +100,33 @@
   },
   {
     "id": 3,
+    "problem_type": "실리콘 탈락",
+    "glb_filename": "test_3-transformed.glb",
+    "image_filename": "silicon_1.jpg",
+    "button_name": "하자 1",
+    "mesh_name": "Box001",
+    "material_name": "Material__43",
+    "position": [-17.87, 14, -5.655],
+    "rotation": [-1.5707963267948966, 0, -0.345],
+    "scale": [0.09, 0.11, 0.065],
+    "isSecondGroup": false,
+    "secondGroup_position": [],
+    "secondGroup_rotation": [],
+    "secondGroup_scale": [],
+
+    "camera_position": {
+      "x": -1.0843640894656196,
+      "y": 1.345109347319603,
+      "z": 0.2397924204561
+    },
+    "lookAt": {
+      "a": -1.0843640894656196,
+      "b": 0.8451093473196031,
+      "c": 0.23979242
+    }
+  },
+  {
+    "id": 4,
     "is_midpoint": true,
     "camera_position": {
       "x": -1.644946705845494,
