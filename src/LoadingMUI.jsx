@@ -35,12 +35,12 @@ LinearProgressWithLabel.propTypes = {
 }
 
 export default function LinearWithValueLabel() {
-  const [progress, setProgress] = React.useState(10)
+  const [progress, setProgress] = React.useState(1)
 
   React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 10))
-    }, 8000)
+    }, 30000)
     return () => {
       clearInterval(timer)
     }
