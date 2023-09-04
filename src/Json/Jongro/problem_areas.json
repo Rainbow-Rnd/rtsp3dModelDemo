@@ -244,6 +244,27 @@
       "dolly": -2
     },
     "setTimeout": 2100
+  },
+  {
+    "id": 10,
+    "is_midpoint": true,
+    "camera_position": {
+      "x": -1.356563,
+      "y": 1.40415751,
+      "z": -1.200944
+    },
+    "lookAt": {
+      "a": -0.636563,
+      "b": 0.8341575,
+      "c": -1.10094
+    },
+    "camera_rotate": {
+      "theta": -40,
+      "phi": 0,
+      "dolly": 0.5
+    },
+    "setTimeout": 2100
+
   }
 
 ]
