@@ -11,7 +11,7 @@ import { modelPath } from './config'
 //import { EdgesGeometry } from 'three';
 
 export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId,position,rotation, scale, isSecondGroup, secondGroup_position, secondGroup_rotation, secondGroup_scale }) {
-  const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename)
+  const { nodes, materials } = useGLTF(`/` + glb_filename)
 
   useEffect(() => {
     console.log('threejs:', nodes)

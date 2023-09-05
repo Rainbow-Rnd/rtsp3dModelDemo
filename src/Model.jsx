@@ -10,10 +10,10 @@ import { ProblemAreas } from './ProblemAreas'
 import { useRef } from 'react'
 import { modelPath } from './config'
 
-import { T1 } from './Polygon/T1'
-import { T2 } from './Polygon/T2'
-import { T3 } from './Polygon/T3'
-import { T4 } from './Polygon/T4'
+import { M1 } from './Jongro/M1'
+import { M2 } from './Jongro/M2'
+import { M3 } from './Jongro/M3'
+import { M4 } from './Jongro/M4'
 import { Model as MainWindow } from './Window/Main_window'
 import { Model as MainWindow2 } from './Window/Main_window2'
 import { Model as MainWindow3 } from './Window/Main_window3'
@@ -70,10 +70,10 @@ export default function Model(props) {
       <Suspense fallback={null}>
         <Center top>
           <group position-y={-4.75} dispose={null} scale={0.07}>
-            <T1 />
-            <T2 />
-            <T3 />
-            <T4 />
+            <M1 />
+            <M2 />
+            <M3 />
+            <M4 />
             <MainWindow />
             <MainWindow2 />
             <MainWindow3 />
