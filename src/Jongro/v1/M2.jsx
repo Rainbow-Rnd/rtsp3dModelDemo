@@ -5,7 +5,7 @@ Command: npx gltfjsx@6.2.12 tile8_16_opt.glb
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { modelPath } from '../config'
+import { modelPath } from '../../config'
 
 export function M2(props) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` +'tile8_16_opt.glb')
