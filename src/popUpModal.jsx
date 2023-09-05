@@ -35,17 +35,17 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
           </button>
         </div>
         {imageLoaded ? (
-          <img className='popUpImg' src={process.env.PUBLIC_URL + `/images/${imageFile}`} alt="image"  />
+          <img className="popUpImg" src={process.env.PUBLIC_URL + `/images/${imageFile}`} alt="image" />
         ) : (
           <div className="popUpLoading">Loading image...</div>
-        )}
-        <div className='popUpTag'>
-          
-        <h3>하자 종류</h3>
-        <span style={{color:"black", fontSize:"20px", fontWeight:"bold"}}>:</span>
-        <h3 className="popUpTag" key={jsonData.id}>
-          {jsonData.problem_type}
-        </h3>
+        )}{' '}
+        <div className="popUpTag">
+          <h3>하자 종류</h3>
+          <span style={{ color: 'black', fontSize: '22px', fontWeight: 'bold' }}>:</span>
+          <h3 className="popUpTag" key={jsonData.id}>
+            {jsonData.problem_type}
+          </h3>
+
         </div>
       </div>
     </div>
