@@ -55,7 +55,7 @@ export default class StreamedianPlayer extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="Wrapper-Con">
         <button
           className="backBtnStyles"
           onClick={() => {
@@ -81,7 +81,7 @@ export default class StreamedianPlayer extends React.Component {
             </div>
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

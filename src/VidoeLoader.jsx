@@ -6,7 +6,7 @@ const VideoComponent = () => {
   const videoUrl = process.env.REACT_APP_VIDEO_URL
 
   return (
-    <>
+    <div className="Wrapper-Con">
       <button
         className="backBtnStyles"
         onClick={() => {
@@ -34,7 +34,7 @@ const VideoComponent = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
