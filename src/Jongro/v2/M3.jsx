@@ -5,10 +5,10 @@ Command: npx gltfjsx@6.2.12 tile17_24_opt.glb
 
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { modelPath } from '../config'
+import { modelPath } from '../../config'
 
-export function T3(props) {
-  const { nodes, materials } = useGLTF(`/${modelPath}/` +'tile17_24_opt.glb')
+export function M3(props) {
+  const { nodes, materials } = useGLTF(`/${modelPath}/` +'tile17_24.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Tile_17.geometry} material={materials.Tile_17_0} position={[0, -70, 0]} />
@@ -21,9 +21,9 @@ export function T3(props) {
       <mesh geometry={nodes.Tile_21.geometry} material={materials.Tile_21_0} position={[0, -70, 0]} />
       <mesh geometry={nodes.Tile_22.geometry} material={materials.Tile_22_0} position={[0, -70, 0]} />
       <mesh geometry={nodes.Tile_23.geometry} material={materials.Tile_23_0} position={[0, -70, 0]} />
-      <mesh geometry={nodes.Tile_24.geometry} material={materials.Tile_24_0} position={[0, -70, 0]} />
+      <mesh geometry={nodes.Tile_24.geometry} material={materials.material_0} rotation={[Math.PI / 2, 0, 0]} />
     </group>
   )
 }
 
-useGLTF.preload(`/${modelPath}/` +'tile17_24_opt.glb')
+useGLTF.preload(`/${modelPath}/` +'tile17_24.glb')

@@ -45,6 +45,7 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
           <h3 className="popUpTag" key={jsonData.id}>
             {jsonData.problem_type}
           </h3>
+
         </div>
       </div>
     </div>
