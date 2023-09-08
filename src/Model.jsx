@@ -1,7 +1,7 @@
 import './styles.css'
 import { OrbitControls, Center, Grid, useGLTF } from '@react-three/drei'
 
-import { Suspense, useState } from 'react'
+import { Fragment, Suspense, useState } from 'react'
 
 import problem_areas from './Json/Jongro/problem_areas.json'
 
@@ -125,11 +125,12 @@ export default function Model(props) {
             <OutPanel2 />
             <OutPanel3 />
 
-            {problem_areas.map((problem_area) => {
+            {problem_areas.map((problem_area,idx) => {
               return problem_area.is_midpoint ? (
-                <></>
+                <Fragment key={idx}></Fragment>
               ) : (
                 <ProblemAreas
+                  key={idx} // Use a more descriptive and unique key
                   glb_filename={problem_area.glb_filename}
                   image_filename={problem_area.image_filename}
                   problemAreaId={problem_area.id}

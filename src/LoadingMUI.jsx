@@ -16,7 +16,7 @@ function LinearProgressWithLabel(props) {
         textAlign: 'center'
       }}>
       <Typography variant="h5" gutterBottom color="white">
-        촬영 영상을 3D 모델로 변환 중입니다...
+        Loading ...
       </Typography>
       <Box sx={{ width: '50%', mb: 1 }}>
         <LinearProgress variant="determinate" {...props} />
@@ -34,17 +34,7 @@ LinearProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired
 }
 
-export default function LinearWithValueLabel() {
-  const [progress, setProgress] = React.useState(0)
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 1))
-    }, 6000)
-    return () => {
-      clearInterval(timer)
-    }
-  }, [])
+export default function LinearWithValueLabel(props) {
 
   return (
     <Box
@@ -53,7 +43,7 @@ export default function LinearWithValueLabel() {
         height: '100vh',
         position: 'relative'
       }}>
-      <LinearProgressWithLabel value={progress} />
+      <LinearProgressWithLabel value={props.value} />
     </Box>
   )
 }

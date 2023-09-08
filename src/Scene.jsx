@@ -40,12 +40,12 @@ export default function Scene(props) {
       probleAreaFolder[button_name] = button((get) => {
         cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
 
-        console.log(idx , ' problem_area' , problem_area)
+        //console.log(idx , ' problem_area' , problem_area)
 
 
         if (problem_area.camera_rotate){
-          console.log("rotate and dolly")
-          console.log(problem_area.camera_rotate.phi)
+          // console.log("rotate and dolly")
+          // console.log(problem_area.camera_rotate.phi)
           cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
           cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
           cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
@@ -107,7 +107,7 @@ export default function Scene(props) {
           setTimeout(() => {
             cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
             if (problem_area.camera_rotate) {
-              console.log('rotate and dolly')
+              //console.log('rotate and dolly')
               cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
               cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
               cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
@@ -118,7 +118,7 @@ export default function Scene(props) {
           setTimeout(() => {
             cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
             if (problem_area.camera_rotate) {
-              console.log('rotate and dolly')
+              //console.log('rotate and dolly')
               cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
               cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
               cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)

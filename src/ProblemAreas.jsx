@@ -13,9 +13,9 @@ import { modelPath } from './config'
 export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId,position,rotation, scale, isSecondGroup, secondGroup_position, secondGroup_rotation, secondGroup_scale }) {
   const { nodes, materials } = useGLTF(`/` + glb_filename)
 
-  useEffect(() => {
-    console.log('threejs:', nodes)
-  }, [])
+  // useEffect(() => {
+  //   console.log('threejs:', nodes)
+  // }, [])
 
   //const edgeGeometry = new EdgesGeometry(nodes[mesh_name].geometry);
 
@@ -30,7 +30,7 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
             onClick={(e) => {
               //console.log('problemAreaId : ', problemAreaId)
               showPopup(image_filename, problemAreaId)
-              console.log(e.point)
+              //console.log(e.point)
             }}
             geometry={nodes[mesh_name].geometry}
             material={materials[material_name]}
@@ -43,7 +43,7 @@ export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_nam
           onClick={(e) => {
             //console.log('problemAreaId : ', problemAreaId)
             showPopup(image_filename, problemAreaId)
-            console.log(e.point)
+            //console.log(e.point)
           }}
           geometry={nodes[mesh_name].geometry}
           material={materials[material_name]}

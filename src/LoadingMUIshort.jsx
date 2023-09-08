@@ -16,7 +16,7 @@ function LinearProgressWithLabel(props) {
         textAlign: 'center'
       }}>
       <Typography variant="h5" gutterBottom color="white">
-        촬영 영상을 3D 모델로 변환 중입니다...
+        Loading ...
       </Typography>
       <Box sx={{ width: '50%', mb: 1 }}>
         <LinearProgress variant="determinate" {...props} />

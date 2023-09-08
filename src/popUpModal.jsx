@@ -18,7 +18,7 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
     if (problemAreaId !== undefined) {
       problemAreaId = parseInt(problemAreaId)
       const currentJsonData = problemAreas[problemAreaId]
-      console.log('Popup useEffect currentJsonData: ', currentJsonData)
+      //console.log('Popup useEffect currentJsonData: ', currentJsonData)
       setJsonData(currentJsonData)
     }
   }, [problemAreaId, visible])

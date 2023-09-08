@@ -12,10 +12,10 @@ function App({ id, url }) {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/stream" element={<StreamedianPlayer id={id}>{<source src={url} type="application/x-rtsp" />}</StreamedianPlayer>} />
-        <Route path="/video" element={<VidoeLoader />} />
+        {/*<Route path="/stream" element={<StreamedianPlayer id={id}>{<source src={url} type="application/x-rtsp" />}</StreamedianPlayer>} />*/}
+        {/*<Route path="/video" element={<VidoeLoader />} />*/}
         <Route path="/model" element={<ModelApp />} />
-        <Route path="/mode1" element={<ModelAppShort />} />
+        {/*<Route path="/mode1" element={<ModelAppShort />} />*/}
       </Routes>
     </Router>
   )

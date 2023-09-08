@@ -8,17 +8,22 @@ import { progressTimeout } from './config.js'
 export default function AppModel() {
   const [imageFile, setImageFile] = useState('')
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(10)
+  const [loadingPercentage, setLoadingPercentage] = useState(0)
   const [problemAreaId, setProblemAreaId] = useState(0)
 
   useEffect(() => {
+
+    // 1초에 20% => 총 5초
+    const progressUnit = 2
+    const timeout = 100
+
     const progressInterval = setInterval(() => {
-      setIsLoading((prevProgress) => prevProgress + 10)
-    }, 600000)
+      setLoadingPercentage((prevProgress) => prevProgress + progressUnit)
+    }, timeout)
 
     setTimeout(() => {
       clearInterval(progressInterval)
-      setIsLoading(100)
+      setLoadingPercentage(100)
     }, progressTimeout)
   }, [])
 
@@ -32,8 +37,8 @@ export default function AppModel() {
   }
   return (
     <>
-      {isLoading < 100 ? (
-        <Loading variant="determinate" value={isLoading} />
+      {loadingPercentage < 100 ? (
+        <Loading variant="determinate" value={loadingPercentage} />
       ) : (
         <Canvas shadows camera={{ position: [4, 4, 4], fov: 60 }}>
           <Scene showPopup={showPopup} />
