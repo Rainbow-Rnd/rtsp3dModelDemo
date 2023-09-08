@@ -10,7 +10,8 @@ import { modelPath } from '../../config'
 export function M2(props) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` +'tile8_16_opt.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null}
+    >
       <group position={[0, -70, 0]}>
         <mesh geometry={nodes.Tile_8_1.geometry} material={materials.Tile_8_0} />
         <mesh geometry={nodes.Tile_8_2.geometry} material={materials.Tile_8_1} />

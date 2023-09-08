@@ -133,7 +133,7 @@ export default function Scene(props) {
 
   return (
     <>
-      <group position-y={-0.5}>
+      <group >
         <Center top>
           <Model showPopup={props.showPopup} />
         </Center>
@@ -166,5 +166,5 @@ function GroundComponent() {
     followCamera: false,
     infiniteGrid: true
   }
-  return <Grid position={[0, -0.01, 0]} args={[10.5, 10.5]} {...gridConfig} />
+  return <Grid {...gridConfig} />
 }

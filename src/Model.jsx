@@ -83,7 +83,7 @@ export default function Model(props) {
       <ambientLight />
       <Suspense fallback={null}>
         <Center top>
-          <group position-y={-4.75} dispose={null} scale={0.07}>
+          <group dispose={null} >
             <M1 />
             <M2 />
             <M3 />

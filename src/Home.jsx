@@ -32,7 +32,7 @@ function Home() {
         </div>
         <div className="footer">
           <div className="upper-footer">
-            <p>경기도 성남시 중원구 사기막골로99 센틀럴비즈타워2차 B동1005,1006호</p>
+            <p>경기도 성남시 중원구 사기막골로99 센트럴비즈타워2차 B동1005,1006호</p>
             <span>|</span>
             <p>CEO: 정한규 </p>
             <span>|</span>

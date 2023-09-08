@@ -19,7 +19,9 @@ export function Model(props) {
         }}
 
         geometry={nodes.Rectangle001001.geometry}
-        material={materials['Material__43.001']} position={[-11.27, 14.279, -23.741]} rotation={[3.023, -1.245, -1.736]} scale={0.015}  >
+        material={materials['Material__43.001']} position={[-11.27, 14.279, -23.741]}
+        rotation={[3.023, -1.245, -1.736]}
+        scale={0.015}  >
       </mesh>
 </group>
   )

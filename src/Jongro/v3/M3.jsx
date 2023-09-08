@@ -10,7 +10,8 @@ import { modelPath } from '../../config'
 export function M3(props) {
   const { nodes, materials } = useGLTF(`/${modelPath}/` +'tile17_24.glb')
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null}
+    >
       <mesh geometry={nodes.Tile_17.geometry} material={materials['Tile_17_0.001']} position={[0, -70, 0]} />
       <mesh geometry={nodes.Tile_18.geometry} material={materials['Tile_18_0.001']} position={[0, -70, 0]} />
       <mesh geometry={nodes.Tile_19.geometry} material={materials['Tile_19_0.001']} position={[0, -70, 0]} />
