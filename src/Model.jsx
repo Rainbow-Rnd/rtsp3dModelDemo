@@ -147,8 +147,7 @@ export default function Model(props) {
             })}
           </group>
         </Center>
-        <OrbitControls ref={ref} target={[0, 1, 0]} />
-        <OrbitControls ref={ref} target={[0, 1, 0]} />
+        {/*<OrbitControls ref={ref} target={[0, 10, 0]} />*/}
       </Suspense>
     </>
   )

@@ -137,7 +137,8 @@ export default function Scene(props) {
         <Center top>
           <Model showPopup={props.showPopup} />
         </Center>
-        <GroundComponent />
+        {/*<GroundComponent/>*/}
+
         <CameraControls
           ref={cameraControlsRef}
           minDistance={minDistance}
@@ -166,5 +167,5 @@ function GroundComponent() {
     followCamera: false,
     infiniteGrid: true
   }
-  return <Grid {...gridConfig} />
+  return <Grid position={[0, 20, 0]} args={[10.5, 10.5]} {...gridConfig} />
 }

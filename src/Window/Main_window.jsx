@@ -8,9 +8,13 @@ import { useGLTF } from '@react-three/drei'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/main_window.glb')
+
+  const handleClick = (e) => {
+    console.log(e.point)
+  };
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Box001002.geometry} material={materials.Material__43} position={[-12.30, 16.389, -22.0]} rotation={[0.02, 1.23, -0.027]} scale={[0.3, 0.071, 0.954]} />
+      <mesh  onClick={handleClick} geometry={nodes.Box001002.geometry} material={materials.Material__43} position={[-12.30, 16.389, -22.0]} rotation={[0.02, 1.23, -0.027]} scale={[0.3, 0.071, 0.954]} />
     </group>
   )
 }

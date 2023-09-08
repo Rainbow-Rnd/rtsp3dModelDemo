@@ -34,17 +34,7 @@ LinearProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired
 }
 
-export default function LinearWithValueLabel() {
-  const [progress, setProgress] = React.useState(0)
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) => (prevProgress >= 100 ? 10 : prevProgress + 1))
-    }, 6000)
-    return () => {
-      clearInterval(timer)
-    }
-  }, [])
+export default function LinearWithValueLabel(props) {
 
   return (
     <Box
@@ -53,7 +43,7 @@ export default function LinearWithValueLabel() {
         height: '100vh',
         position: 'relative'
       }}>
-      <LinearProgressWithLabel value={progress} />
+      <LinearProgressWithLabel value={props.value} />
     </Box>
   )
 }
