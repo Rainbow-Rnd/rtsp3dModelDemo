@@ -3,7 +3,7 @@
     "id": 0,
     "problem_type": "실리콘 탈락",
     "glb_filename": "test_outline.glb",
-    "image_filename": "problem_area1.jpg",
+    "image_filename": "problem_area1.JPG",
     "button_name": "하자 1",
     "mesh_name": "Rectangle001",
     "material_name": "Material__43",
@@ -36,7 +36,7 @@
     "problem_type": "철판 부식",
     "glb_filename": "test_2_outline.glb",
 
-    "image_filename": "problem_area2.jpg",
+    "image_filename": "problem_area2.JPG",
     "button_name": "하자 2",
 
     "mesh_name": "Rectangle001",

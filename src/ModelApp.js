@@ -15,7 +15,7 @@ export default function AppModel() {
 
     // 1초에 20% => 총 5초
     const progressUnit = 2
-    const timeout = 100
+    const timeout = 200
 
     const progressInterval = setInterval(() => {
       setLoadingPercentage((prevProgress) => prevProgress + progressUnit)
