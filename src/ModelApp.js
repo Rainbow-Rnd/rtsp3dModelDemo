@@ -14,8 +14,8 @@ export default function AppModel() {
   useEffect(() => {
 
     // 1초에 20% => 총 5초
-    const progressUnit = 2
-    const timeout = 200
+    const progressUnit = 4
+    const timeout = 400
 
     const progressInterval = setInterval(() => {
       setLoadingPercentage((prevProgress) => prevProgress + progressUnit)
