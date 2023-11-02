@@ -8,29 +8,49 @@ import React, { useRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 import { modelPath } from './config'
+//import { EdgesGeometry } from 'three';
 
-export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId }) {
-  const { nodes, materials } = useGLTF(`/${modelPath}/` + glb_filename)
+export function ProblemAreas({ showPopup, glb_filename, image_filename, mesh_name, material_name, problemAreaId,position,rotation, scale, isSecondGroup, secondGroup_position, secondGroup_rotation, secondGroup_scale }) {
+  const { nodes, materials } = useGLTF(`/` + glb_filename)
 
-  useEffect(() => {
-    console.log('threejs:', nodes)
-    // console.log('image_filename!!:', image_filename)
-    // console.log('problemAreaId!!:', problemAreaId)
+  // useEffect(() => {
+  //   console.log('threejs:', nodes)
+  // }, [])
 
-  }, [])
+  //const edgeGeometry = new EdgesGeometry(nodes[mesh_name].geometry);
 
   return (
     <group dispose={null}>
-      <mesh
-        onClick={(e) => {
-          //console.log('problemAreaId : ', problemAreaId)
-          showPopup(image_filename, problemAreaId)
-          console.log(e.point)
-        }}
-        geometry={nodes[mesh_name].geometry}
-        material={materials[material_name]}>
-        <meshPhongMaterial color={new THREE.Color('red')} shininess={0} />
-      </mesh>
+      {/* Original mesh */}
+      {isSecondGroup ?
+
+        (
+        <group position={secondGroup_position} rotation={secondGroup_rotation} scale={secondGroup_scale}>
+          <mesh
+            onClick={(e) => {
+              //console.log('problemAreaId : ', problemAreaId)
+              showPopup(image_filename, problemAreaId)
+              //console.log(e.point)
+            }}
+            geometry={nodes[mesh_name].geometry}
+            material={materials[material_name]}
+            scale={scale}
+          >
+          </mesh>
+        </group>
+      ) : (
+        <mesh
+          onClick={(e) => {
+            //console.log('problemAreaId : ', problemAreaId)
+            showPopup(image_filename, problemAreaId)
+            //console.log(e.point)
+          }}
+          geometry={nodes[mesh_name].geometry}
+          material={materials[material_name]}
+          position={position} rotation={rotation} scale={scale}
+        >
+        </mesh>
+      )}
     </group>
   )
 }

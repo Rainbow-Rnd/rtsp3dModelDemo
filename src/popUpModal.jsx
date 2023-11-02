@@ -18,7 +18,7 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
     if (problemAreaId !== undefined) {
       problemAreaId = parseInt(problemAreaId)
       const currentJsonData = problemAreas[problemAreaId]
-      console.log('Popup useEffect currentJsonData: ', currentJsonData)
+      //console.log('Popup useEffect currentJsonData: ', currentJsonData)
       setJsonData(currentJsonData)
     }
   }, [problemAreaId, visible])
@@ -35,14 +35,18 @@ function Popup({ visible, onHide, imageFile, problemAreaId }) {
           </button>
         </div>
         {imageLoaded ? (
-          <img src={process.env.PUBLIC_URL + `/images/${imageFile}`} alt="image" style={{ width: '100%', marginBottom: '10px' }} />
+          <img className="popUpImg" src={process.env.PUBLIC_URL + `/images/${imageFile}`} alt="image" />
         ) : (
           <div className="popUpLoading">Loading image...</div>
-        )}
-        <h3>하자 종류</h3>
-        <p className="popUpTag" key={jsonData.id}>
-          {jsonData.problem_type}
-        </p>
+        )}{' '}
+        <div className="popUpTag">
+          <h3>하자 종류</h3>
+          <span style={{ color: 'black', fontSize: '22px', fontWeight: 'bold' }}>:</span>
+          <h3 className="popUpTag" key={jsonData.id}>
+            {jsonData.problem_type}
+          </h3>
+
+        </div>
       </div>
     </div>
   ) : (

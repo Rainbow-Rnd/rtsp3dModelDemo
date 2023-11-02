@@ -19,10 +19,6 @@ function Home() {
             </div>
           </div>
           <div className="rap-buttons">
-            <button className="btnRequest" onClick={() => (window.location.href = '/stream')}>
-              촬영 영상 보기
-            </button>
-
             <div>
               <button className="btnRequest" onClick={() => (window.location.href = '/model')}>
                 3D 모델 보기

@@ -7,6 +7,7 @@ import { suspend } from 'suspend-react'
 import Model from './Model'
 // import { gsap } from 'gsap'
 import problem_areas from './Json/Jongro/problem_areas.json'
+import { cameraMoveTime } from './config'
 const city = import('@pmndrs/assets/hdri/city.exr')
 
 const { DEG2RAD } = THREE.MathUtils
@@ -27,24 +28,40 @@ export default function Scene(props) {
   //   })
   // }
 
-  let crackFolder = {}
+  let probleAreaFolder = {}
   problem_areas.forEach((problem_area, idx) => {
-    const button_name = problem_area.button_name
-    const { x, y, z } = problem_area.camera_position
-    const { a, b, c } = problem_area.lookAt
 
-    crackFolder[button_name] = button((get) => {
-      cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
-    })
+    if (!problem_area.is_midpoint) {
+
+      const button_name = problem_area.button_name
+      const { x, y, z } = problem_area.camera_position
+      const { a, b, c } = problem_area.lookAt
+
+      probleAreaFolder[button_name] = button((get) => {
+        cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+
+        //console.log(idx , ' problem_area' , problem_area)
+
+
+        if (problem_area.camera_rotate){
+          // console.log("rotate and dolly")
+          // console.log(problem_area.camera_rotate.phi)
+          cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true);
+          cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true);
+          cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+        }
+      })
+    }
   })
 
-  const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly, reset1 } = useControls({
+
+  const { minDistance, enabled, verticalDragToForward, dollyToCursor, infinityDolly } = useControls({
     thetaGrp: buttonGroup({
       label: 'rotate theta',
       opts: {
         '+45º': () => cameraControlsRef.current?.rotate(45 * DEG2RAD, 0, true),
-        '-90º': () => cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true),
-        '+360º': () => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)
+        '-45º': () => cameraControlsRef.current?.rotate(-45 * DEG2RAD, 0, true),
+        '-90º': () => cameraControlsRef.current?.rotate(-90 * DEG2RAD, 0, true)
       }
     }),
     phiGrp: buttonGroup({
@@ -77,10 +94,41 @@ export default function Scene(props) {
       }
     }),
     reset: button(() => cameraControlsRef.current?.reset(true)),
-    360: button(() => cameraControlsRef.current?.rotate(360 * DEG2RAD, 0, true)),
-    // reset1: button(rotateCameraSmoothly),
 
-    '하자 영역': folder(crackFolder)
+    '전체 보기': button(() => {
+      problem_areas.forEach((problem_area, idx) => {
+        const { x, y, z } = problem_area.camera_position
+        const { a, b, c } = problem_area.lookAt
+
+        if (problem_area.id === 0) {
+
+          cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+
+          setTimeout(() => {
+            cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+            if (problem_area.camera_rotate) {
+              //console.log('rotate and dolly')
+              cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
+              cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
+              cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+            }
+          }, 1)
+
+        } else {
+          setTimeout(() => {
+            cameraControlsRef.current?.setLookAt(x, y, z, a, b, c, true)
+            if (problem_area.camera_rotate) {
+              //console.log('rotate and dolly')
+              cameraControlsRef.current?.rotate(problem_area.camera_rotate.theta * DEG2RAD, 0, true)
+              cameraControlsRef.current?.rotate(0, problem_area.camera_rotate.phi * DEG2RAD, true)
+              cameraControlsRef.current?.dolly(problem_area.camera_rotate.dolly, true)
+            }
+          }, problem_area.setTimeout * idx) // Adjust the delay time in milliseconds as needed
+        }
+      })
+    }),
+
+    '하자 영역': folder(probleAreaFolder)
   })
 
   return (
@@ -97,8 +145,7 @@ export default function Scene(props) {
           verticalDragToForward={verticalDragToForward}
           dollyToCursor={dollyToCursor}
           infinityDolly={infinityDolly}
-          reset1={reset1}
-          smoothTime={6}
+          smoothTime={cameraMoveTime}
         />
         <Environment files={suspend(city).default} />
       </group>

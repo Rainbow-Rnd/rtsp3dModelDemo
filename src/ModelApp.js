@@ -8,25 +8,26 @@ import { progressTimeout } from './config.js'
 export default function AppModel() {
   const [imageFile, setImageFile] = useState('')
   const [isPopupOpen, setIsPopupOpen] = useState(false)
-  const [isLoading, setIsLoading] = useState(0)
-
+  const [loadingPercentage, setLoadingPercentage] = useState(0)
   const [problemAreaId, setProblemAreaId] = useState(0)
 
   useEffect(() => {
+
+    // 1초에 20% => 총 5초
+    const progressUnit = 4
+    const timeout = 400
+
     const progressInterval = setInterval(() => {
-      setIsLoading((prevProgress) => prevProgress + 10)
-    }, 8000)
+      setLoadingPercentage((prevProgress) => prevProgress + progressUnit)
+    }, timeout)
 
     setTimeout(() => {
       clearInterval(progressInterval)
-      setIsLoading(100)
-      //setshowPopupl(true)
+      setLoadingPercentage(100)
     }, progressTimeout)
   }, [])
 
   const showPopup = (imageFile, problemAreaId) => {
-    //console.log(`showPopup imageFile: ${imageFile}`)
-    //console.log(`showPopup problemAreaId: ${problemAreaId}`)
     setIsPopupOpen(true)
     setImageFile(imageFile)
     setProblemAreaId(problemAreaId)
@@ -36,10 +37,10 @@ export default function AppModel() {
   }
   return (
     <>
-      {isLoading < 100 ? (
-        <Loading variant="determinate" value={isLoading} />
+      {loadingPercentage < 100 ? (
+        <Loading variant="determinate" value={loadingPercentage} />
       ) : (
-        <Canvas shadows camera={{ position: [5, 5, 5], fov: 60 }}>
+        <Canvas shadows camera={{ position: [4, 4, 4], fov: 60 }}>
           <Scene showPopup={showPopup} />
         </Canvas>
       )}
